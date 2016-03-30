@@ -1,0 +1,19 @@
+{
+    "name": "sqweb/laravel_sdk",
+    "description": "Sqweb package for laravel users",
+    "authors": [
+        {
+            "name": "Mathieu Darrigade",
+            "email": "mathieu@sqweb.com",
+            "role": "Developer"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">= 5.2.0",
+        "ext-curl": "*",
+        },
+    "require-dev": {
+        "phpunit/phpunit": "~4.0"
+    }
+}
