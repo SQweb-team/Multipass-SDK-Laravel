@@ -17,7 +17,6 @@ use App\Http\Controllers\Controller;
 
 class SqwebController extends Controller
 {
-
     private $response;
 
     /**
@@ -97,7 +96,7 @@ class SqwebController extends Controller
         }
     }
 
-    public function transparent($text, $percent)
+    public function transparent($text, $percent = 0)
     {
         if (self::checkCredits() == 0 && $percent >= 0 && $percent <= 100) {
             if ( 0 == $percent ) {
