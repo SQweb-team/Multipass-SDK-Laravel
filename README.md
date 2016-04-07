@@ -8,6 +8,12 @@ SQweb Laravel Package
 
 **This package enables you to easily integrate SQweb on your Laravel powered site.**
 
+##Requirements
+
+**This SDK has been tested with PHP 5.5 and greater.**
+
+We are unable to provide official support for earlier versions. For more information about end of life PHP branches, [see this page](http://php.net/supported-versions.php).
+
 ##Install
 
 **This package is intended for websites powered by Laravel, and advanced integrations.**
