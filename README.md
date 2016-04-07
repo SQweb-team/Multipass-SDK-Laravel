@@ -1,3 +1,11 @@
+SQweb Laravel Package
+===
+
+[![Build Status](https://travis-ci.org/SQweb-team/SQweb-SDK-Laravel.svg?branch=master)](https://travis-ci.org/SQweb-team/SQweb-SDK-Laravel)
+[![License](https://img.shields.io/badge/license-GPL%20v3-428F7E.svg)](http://opensource.org/licenses/GPL-3.0)
+
+**This package enables you to easily integrate SQweb on your Laravel powered site.**
+
 ##Install
 
 **This package is intended for custom PHP websites, with Laravel, and advanced integrations.**
@@ -19,7 +27,9 @@ The SDK is super basic. Here's how to use it :
 
 This function outputs the SQweb JavaScript tag. Insert it before the closing `</body>` tag in your HTML.
 
+```php
 {{$sqweb->script();}}
+```
 
 **If you previously had a SQweb JavaScript tag, make sure to remove it to avoid any conflicts.**
 
@@ -29,7 +39,7 @@ This function checks if the user has credits, so that you can disable ads and/or
 
 You can use it like this :
 
-```
+```php
 @if ($sqweb->checkCredits() > 0)
     //CONTENT
 @else
@@ -41,7 +51,7 @@ You can use it like this :
 
 Finally, use this code to get the SQweb button on your pages:
 
-```
+```php
 {{$sqweb->button('blue')}}
 ```
 
@@ -49,7 +59,7 @@ This function takes one optional parameter, the color. You can switch between `b
 
 ##Options
 
-Unless otherwise noted, these options default to `false`. You can set them in the constructor, where you defined your ID_SITE.
+Unless otherwise noted, these options default to `false`. You can set them in the constructor, where you defined your `ID_SITE`.
 
 |Option|Description
 |---|---|
@@ -68,12 +78,6 @@ We welcome contributions and improvements.
 ###Coding Style
 
 All PHP code must conform to the [PSR2 Standard](http://www.php-fig.org/psr/psr-2/).
-
-###Builds and Releases
-
-Releases are handled with `gulp`. To package a release of the SDK, simply execute `gulp`. This will prepare a zip for you in `dist/`.
-
-By default, the `build/` folder is automatically removed. If you want to keep it, say for debugging, you can package the SDK using `gulp keep-build`.
 
 ##Bugs and Security Vulnerabilities
 

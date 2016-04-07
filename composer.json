@@ -1,6 +1,6 @@
 {
     "name": "sqweb/laravel_sdk",
-    "description": "Sqweb package for laravel users",
+    "description": "SQweb package for Laravel users",
     "keywords": ["sqweb", "laravel", "sdk"],
     "authors": [
         {
