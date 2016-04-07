@@ -96,7 +96,7 @@ class SqwebController extends Controller
     public function transparent($text, $percent = 0)
     {
         if (self::checkCredits() == 0 && $percent >= 0 && $percent <= 100) {
-            if ( 0 == $percent ) {
+            if (0 == $percent) {
                 return '';
             }
             $array_text = explode(' ', $text);
@@ -105,7 +105,7 @@ class SqwebController extends Controller
             $lambda = (1 / $nbr);
             $alpha = 1;
             $begin = 0;
-            while ( $begin < $nbr ) {
+            while ($begin < $nbr) {
                 $final[ $begin ] = '<span style="opacity: '. $alpha .'">'. $array_text[ $begin ] .'</span>';
                 $begin++;
                 $alpha -= $lambda;
