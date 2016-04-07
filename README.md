@@ -10,7 +10,7 @@ SQweb Laravel Package
 
 ##Install
 
-**This package is intended for custom PHP websites, with Laravel, and advanced integrations.**
+**This package is intended for websites powered by Laravel, and advanced integrations.**
 
 If you're using WordPress, we've made it easy for you. Download the SQweb plugin [directly from WordPress.org](https://wordpress.org/plugins/sqweb/), or check out the source [here](https://github.com/SQweb-team/SQweb-WordPress-Plugin).
 
@@ -39,7 +39,7 @@ This function outputs the SQweb JavaScript tag. Insert it before the closing `</
 
 This function checks if the user has credits, so that you can disable ads and/or unlock premium content.
 
-You can use it like this :
+Use it like this:
 
 ```php
 @if ($sqweb->checkCredits() > 0)
@@ -89,7 +89,7 @@ If you discover a security vulnerability within SQweb or this plugin, please sen
 
 ##License
 
-Copyright (C) 2015 – SQweb
+Copyright (C) 2016 – SQweb
 
 This program is free software ; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation ; either version 3 of the License, or (at your option) any later version.
 
