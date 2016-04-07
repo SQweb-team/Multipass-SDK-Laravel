@@ -1,9 +1,6 @@
 <?php
 /*
  * SQweb PHP SDK
- * @author Pierre Lavaux <pierre@sqweb.com>
- * @author Bastien Botella <bastien@sqweb.com>
- * @author Mathieu Darrigade <mathieu@sqweb.com>
  * @link https://github.com/SQweb-team/SQweb-SDK-Laravel
  * @license http://opensource.org/licenses/GPL-3.0
  */
@@ -139,15 +136,16 @@ class SqwebController extends Controller
         }
     }
 
-    public function isTimestamp( $string ) {
+    public function isTimestamp($string)
+    {
         return (1 === preg_match('~^[1-9][0-9]*$~', $string));
     }
 
     public function dateBeforeDisplay($text, $waitDate, $publicationDate)
     {
-        if (self::checkCredits() == 0) {
+        if (self::checkCredits() === 0) {
             $waitDate = $waitDate * 86400;
-            if (self::isTimestamp($publicationDate) == false) {
+            if (self::isTimestamp($publicationDate) === false) {
                 $publicationDate = strToTime($publicationDate);
             }
             $final = $publicationDate + $waitDate;

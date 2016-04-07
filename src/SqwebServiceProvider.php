@@ -28,7 +28,7 @@ class SqwebServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->publishes([__DIR__.'/../config/config.php' => config_path('config.php')], 'config');
+        $this->publishes([__DIR__ . '/../config/config.php' => config_path('config.php')], 'config');
         $sqweb = new SqwebController();
         view()->share('sqweb', $sqweb);
     }
@@ -40,7 +40,7 @@ class SqwebServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'sqweb');
+        $this->mergeConfigFrom(__DIR__ . '/../config/config.php', 'sqweb');
         $this->app->make('Sqweb\Laravel_sdk\SqwebController');
     }
 }
