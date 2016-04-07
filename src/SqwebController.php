@@ -7,6 +7,8 @@
 
 namespace Sqweb\Laravel_sdk;
 
+define(SDK, 'SQweb/SDK-Laravel 1.0.0');
+
 use \DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Config\Repository;
@@ -44,7 +46,7 @@ class SqwebController extends Controller
                     CURLOPT_RETURNTRANSFER => true,
                     CURLOPT_CONNECTTIMEOUT_MS => 1000,
                     CURLOPT_TIMEOUT_MS => 1000,
-                    CURLOPT_USERAGENT => 'SQweb/SDK 1.0.4',
+                    CURLOPT_USERAGENT => SDK,
                     CURLOPT_POSTFIELDS => array(
                         'token' => $_COOKIE['sqw_z'],
                         'site_id' => $this->id_site,
