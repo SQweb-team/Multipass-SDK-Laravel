@@ -2,13 +2,21 @@ SQweb Laravel Package
 ===
 
 [![Build Status](https://travis-ci.org/SQweb-team/SQweb-SDK-Laravel.svg?branch=master)](https://travis-ci.org/SQweb-team/SQweb-SDK-Laravel)
+[![Code Climate](https://codeclimate.com/github/SQweb-team/SQweb-SDK-Laravel/badges/gpa.svg)](https://codeclimate.com/github/SQweb-team/SQweb-SDK-Laravel)
+[![Dependency Status](https://www.versioneye.com/user/projects/570672f9fcd19a0051854599/badge.svg)](https://www.versioneye.com/user/projects/570672f9fcd19a0051854599)
 [![License](https://img.shields.io/badge/license-GPL%20v3-428F7E.svg)](http://opensource.org/licenses/GPL-3.0)
 
 **This package enables you to easily integrate SQweb on your Laravel powered site.**
 
+##Requirements
+
+**This SDK has been tested with PHP 5.5 and greater.**
+
+We are unable to provide official support for earlier versions. For more information about end of life PHP branches, [see this page](http://php.net/supported-versions.php).
+
 ##Install
 
-**This package is intended for custom PHP websites, with Laravel, and advanced integrations.**
+**This package is intended for websites powered by Laravel, and advanced integrations.**
 
 If you're using WordPress, we've made it easy for you. Download the SQweb plugin [directly from WordPress.org](https://wordpress.org/plugins/sqweb/), or check out the source [here](https://github.com/SQweb-team/SQweb-WordPress-Plugin).
 
@@ -37,7 +45,7 @@ This function outputs the SQweb JavaScript tag. Insert it before the closing `</
 
 This function checks if the user has credits, so that you can disable ads and/or unlock premium content.
 
-You can use it like this :
+Use it like this:
 
 ```php
 @if ($sqweb->checkCredits() > 0)
@@ -87,7 +95,7 @@ If you discover a security vulnerability within SQweb or this plugin, please sen
 
 ##License
 
-Copyright (C) 2015 – SQweb
+Copyright (C) 2016 – SQweb
 
 This program is free software ; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation ; either version 3 of the License, or (at your option) any later version.
 
