@@ -99,14 +99,14 @@ class SqwebController extends Controller
             if (0 == $percent) {
                 return '';
             }
-            $array_text = explode(' ', $text);
+            $arrayText = explode(' ', $text);
             $words = count(explode(' ', $text));
             $nbr = ceil($words / 100 * $percent);
             $lambda = (1 / $nbr);
             $alpha = 1;
             $begin = 0;
             while ($begin < $nbr) {
-                $final[ $begin ] = '<span style="opacity: '. $alpha .'">'. $array_text[ $begin ] .'</span>';
+                $final[ $begin ] = '<span style="opacity: '. $alpha .'">'. $arrayText[ $begin ] .'</span>';
                 $begin++;
                 $alpha -= $lambda;
             }
@@ -119,18 +119,18 @@ class SqwebController extends Controller
     public function postLimitArticle()
     {
         if (self::checkCredits() == 0) {
-            if (!isset($_COOKIE['sqw_blob']) || (isset($_COOKIE['sqw_blob']) && $_COOKIE['sqw_blob'] != -12345678)) {
+            if (!isset($_COOKIE['sqwBlob']) || (isset($_COOKIE['sqwBlob']) && $_COOKIE['sqwBlob'] != -12345678)) {
                 $ip2 = ip2long($_SERVER['REMOTE_ADDR']);
-                if (!isset($_COOKIE['sqw_blob'])) {
-                    $sqw_blob = 1;
+                if (!isset($_COOKIE['sqwBlob'])) {
+                    $sqwBlob = 1;
                 } else {
-                    $sqw_blob = ($_COOKIE['sqw_blob'] / 2) - $ip2 - 2 + 1;
+                    $sqwBlob = ($_COOKIE['sqwBlob'] / 2) - $ip2 - 2 + 1;
                 }
-                if ($this->limit_article > 0 && $sqw_blob <= $this->limit_article) {
-                    $tmp = ($sqw_blob + $ip2 + 2) * 2;
-                    setcookie('sqw_blob', $tmp, time()+60*60*24);
+                if ($this->limit_article > 0 && $sqwBlob <= $this->limit_article) {
+                    $tmp = ($sqwBlob + $ip2 + 2) * 2;
+                    setcookie('sqwBlob', $tmp, time()+60*60*24);
                 } else {
-                    setcookie('sqw_blob', -12345678, time()+60*60*24);
+                    setcookie('sqwBlob', -12345678, time()+60*60*24);
                 }
             }
         }
