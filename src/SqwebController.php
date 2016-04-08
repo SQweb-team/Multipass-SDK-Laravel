@@ -7,7 +7,7 @@
 
 namespace Sqweb\Laravel_sdk;
 
-define('SDK', 'SQweb/SDK-Laravel 1.0.0');
+define('SDK', 'SQweb/SDK-Laravel 1.0.1');
 
 use \DateTime;
 use Illuminate\Http\Request;
