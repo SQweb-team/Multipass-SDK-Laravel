@@ -7,7 +7,7 @@
 
 namespace Sqweb\Laravel_sdk;
 
-define(SDK, 'SQweb/SDK-Laravel 1.0.0');
+define('SDK', 'SQweb/SDK-Laravel 1.0.0');
 
 use \DateTime;
 use Illuminate\Http\Request;
@@ -25,7 +25,7 @@ class SqwebController extends Controller
 
     public function __construct()
     {
-        $config = config('sqweb');
+        $config = !empty(config('sqweb')) ? config('sqweb') : config('sqweb_default_config');
         foreach ($config as $key => $value) {
             $this->$key = $value;
         }
