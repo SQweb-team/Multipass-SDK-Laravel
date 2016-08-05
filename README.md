@@ -12,6 +12,8 @@ SQweb Laravel Package
 
 **This SDK has been tested with PHP 5.5 and greater.**
 
+The current Version of Laravel requires [PHP 5.5.9 or greater](https://laravel.com/docs/5.2#server-requirements).
+
 We are unable to provide official support for earlier versions. For more information about end of life PHP branches, [see this page](http://php.net/supported-versions.php).
 
 ##Install
@@ -23,9 +25,9 @@ If you're using WordPress, we've made it easy for you. Download the SQweb plugin
 ###Using Composer
 
 1. In your project root, execute `composer require sqweb/laravel_sdk`;
-2. Now, go to config/app.php and add this line to your providers array : `Sqweb\Laravel_sdk\SqwebServiceProvider::class.
-3. Type `php artisan vendor:publish` at the root of your project to create the configuration file.
-4. Go to `config/sqweb.php` and set your `ID_SITE`, others options are detail further on this page.
+2. In `./config/app.php`, add this line to your providers array : `Sqweb\Laravel_sdk\SqwebServiceProvider::class`.
+3. Execute `php artisan vendor:publish` at the root of your project to create the configuration file.
+4. Go to `config/sqweb.php` and set your `ID_SITE`.
 
 For additional settings, see "[Options](#options)" below.
 
