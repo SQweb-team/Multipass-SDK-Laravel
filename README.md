@@ -6,13 +6,11 @@ SQweb Laravel Package
 [![Dependency Status](https://www.versioneye.com/user/projects/570672f9fcd19a0051854599/badge.svg)](https://www.versioneye.com/user/projects/570672f9fcd19a0051854599)
 [![License](https://img.shields.io/badge/license-GPL%20v3-428F7E.svg)](http://opensource.org/licenses/GPL-3.0)
 
-**This package enables you to easily integrate SQweb on your Laravel powered site.**
+**This package allows you to easily integrate SQweb on your Laravel powered website.**
 
 ##Requirements
 
 **This SDK has been tested with PHP 5.5 and greater.**
-
-The current Version of Laravel requires [PHP 5.5.9 or greater](https://laravel.com/docs/5.2#server-requirements).
 
 We are unable to provide official support for earlier versions. For more information about end of life PHP branches, [see this page](http://php.net/supported-versions.php).
 
@@ -25,15 +23,15 @@ If you're using WordPress, we've made it easy for you. Download the SQweb plugin
 ###Using Composer
 
 1. In your project root, execute `composer require sqweb/laravel_sdk`;
-2. In `./config/app.php`, add this line to your providers array : `Sqweb\Laravel_sdk\SqwebServiceProvider::class`.
-3. Execute `php artisan vendor:publish` at the root of your project to create the configuration file.
-4. Go to `config/sqweb.php` and set your `ID_SITE`.
+2. Now, go to config/app.php and add this line to your providers array : `Sqweb\Laravel_sdk\SqwebServiceProvider::class.
+3. Type `php artisan vendor:publish` at the root of your project to create the configuration file.
+4. Go to `config/sqweb.php` and set your `ID_SITE`, others options are detail further on this page.
 
 For additional settings, see "[Options](#options)" below.
 
 ##Usage
 
-The SDK is super basic. Here's how to use it :
+The SDK is really simple to use. Here's how to:
 
 ###1. Tagging your pages
 
@@ -52,7 +50,7 @@ This function checks if the user has credits, so that you can disable ads and/or
 Use it like this:
 
 ```php
-@if ($sqweb->checkCredits() > 0)
+@if ($sqweb->checkCredits())
     //CONTENT
 @else
     //ADS
@@ -64,23 +62,22 @@ Use it like this:
 Finally, use this code to get the SQweb button on your pages:
 
 ```php
-{{$sqweb->button('blue')}}
+{{$sqweb->button()}}
 ```
-
-This function takes one optional parameter, the color. You can switch between `blue` (default) and `grey`.
 
 ##Options
 
-Unless otherwise noted, these options default to `false`. You can set them in `config/sqweb.php`, where you defined your `ID_SITE`.
+Set these environment variables in your .env file to enable or disable them.
 
 |Option|Description
 |---|---|
-|`msg`|A custom message that will be shown to your adblockers. If using quotes, you must escape them.|
-|`targeting`|Only show the button to detected adblockers. Cannot be combined with the `beacon` mode.|
-|`beacon`|Monitor adblocking rates quietly, without showing a SQweb button or banner to the end users.|
-|`debug`|Output various messages to the browser console while the plugin executes.|
-|`dwide`|Set to `false` to only enable SQweb on the current domain. Defaults to `true`.|
-|`lang`|You may pick between `en` and `fr`.|
+|`SQWEB_SITE_ID`|Sets your website SQweb ID. Ex: 123456.|
+|`SQWEB_DEBUG`|Outputs various messages to the browser console while the plugin executes. Disabled by default. 1 (activated) or 0 (deactivated).|
+|`SQWEB_TARGET`|Only shows the button in order to detect adblockers. Disabled by default. 1 (activated) or 0 (deactivated).|
+|`SQWEB_DWIDE`|Enables SQweb on the current domain. Enabled by default. 1 (activated) or 0 (deactivated).|
+|`SQWEB_LANG`|Sets the plugin language. Currently supports `en` (English) and `fr` (French). Defaults to `en`|
+|`SQWEB_MESSAGE`|A custom message is displayed to users with an adblocker enabled. Ex:"Please deactivate your adblocker on this website, or support us by using Multipass!". Empty by default.|
+|`SQWEB_LIMIT_ARTICLE`|Limits the number of posts/articles or content seen by non-Multipass users per day. Ex: 10. Defaults to 5.|
 
 
 ##Contributing
