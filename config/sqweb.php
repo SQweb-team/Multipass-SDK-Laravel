@@ -6,7 +6,7 @@ return [
     'targeting'     => 'false',
     'beacon'        => 'false',
     'dwide'         => 'false',
-    'lang'          => 'fr',
+    'lang'          => 'en',
     'message'       => '',
     'limit_article' => 5,
 ];
