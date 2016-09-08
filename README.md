@@ -25,7 +25,7 @@ If you're using WordPress, we've made it easy for you. Download the SQweb plugin
 1. In your project root, execute `composer require sqweb/laravel_sdk`;
 2. Now, go to config/app.php and add this line to your providers array : `Sqweb\Laravel_sdk\SqwebServiceProvider::class.
 3. Type `php artisan vendor:publish` at the root of your project to create the configuration file.
-4. Go to `config/sqweb.php` and set your `ID_SITE`, others options are detail further on this page.
+4. Sets the `SQWEB_SITE_ID` variable in your .env file to your SQweb website ID.
 
 For additional settings, see "[Options](#options)" below.
 
@@ -38,7 +38,7 @@ The SDK is really simple to use. Here's how to:
 This function outputs the SQweb JavaScript tag. Insert it before the closing `</body>` tag in your HTML.
 
 ```php
-{{$sqweb->script();}}
+{{ $sqweb->script() }}
 ```
 
 **If you previously had a SQweb JavaScript tag, make sure to remove it to avoid any conflicts.**
@@ -62,20 +62,20 @@ Use it like this:
 Finally, use this code to get the SQweb button on your pages:
 
 ```php
-{{$sqweb->button()}}
+{{ $sqweb->button() }}
 ```
 
 ##Options
 
-Set these environment variables in your .env file to enable or disable them.
+Set these variables in your .env file to enable or disable them.
 
 |Option|Description
 |---|---|
 |`SQWEB_SITE_ID`|Sets your website SQweb ID. Ex: 123456.|
 |`SQWEB_DEBUG`|Outputs various messages to the browser console while the plugin executes. Disabled by default. 1 (activated) or 0 (deactivated).|
-|`SQWEB_TARGET`|Only shows the button in order to detect adblockers. Disabled by default. 1 (activated) or 0 (deactivated).|
-|`SQWEB_DWIDE`|Enables SQweb on the current domain. Enabled by default. 1 (activated) or 0 (deactivated).|
-|`SQWEB_LANG`|Sets the plugin language. Currently supports `en` (English) and `fr` (French). Defaults to `en`|
+|`SQWEB_TARGET`|Only shows the button to users with adblockers. Disabled by default. 1 (activated) or 0 (deactivated).|
+|`SQWEB_DWIDE`|Disabling this option will limit SQweb to the current domain. Enabled by default. 1 (activated) or 0 (deactivated).|
+|`SQWEB_LANG`|Sets the language. Currently supports `en` (English) and `fr` (French). Defaults to `en`|
 |`SQWEB_MESSAGE`|A custom message is displayed to users with an adblocker enabled. Ex:"Please deactivate your adblocker on this website, or support us by using Multipass!". Empty by default.|
 |`SQWEB_LIMIT_ARTICLE`|Limits the number of posts/articles or content seen by non-Multipass users per day. Ex: 10. Defaults to 5.|
 
@@ -102,4 +102,4 @@ This program is free software ; you can redistribute it and/or modify it under t
 
 This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY ; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details
 
-You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
+You should have received a copy of the GNU General Public License along with this program. If not, see <http://www.gnu.org/licenses/>.

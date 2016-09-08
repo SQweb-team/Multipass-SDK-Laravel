@@ -25,7 +25,10 @@ class SqwebController extends Controller
 
     public function __construct()
     {
-        $this->config = !empty(config('sqweb')) ? config('sqweb') : config('sqweb_default_config');
+        $config = !empty(config('sqweb')) ? config('sqweb') : config('sqweb_default_config');
+        foreach ($config as $key => $value) {
+            $this->$key = $value;
+        }
     }
 
     /**
@@ -64,24 +67,24 @@ class SqwebController extends Controller
 
     public function script()
     {
-        if ($this->config['targeting'] && $this->config['beacon']) {
-            $this->config['beacon'] = 0;
+        if ($this->targeting && $this->beacon) {
+            $this->beacon = 0;
         }
 
         echo '<script>
             var _sqw = {
-                id_site: '. $this->config['id_site'] .',
-                debug: '. $this->config['debug'] .',
-                targeting: '. $this->config['targeting'] .',
-                beacon: '. $this->config['beacon'] .',
-                dwide: '. $this->config['dwide'] .',
-                i18n: "'. $this->config['lang'] .'",
-                msg: "'. $this->config['message'] .'"};
-            var script = document.createElement("script");
-            script.type = "text/javascript";
-            script.src = "//cdn.sqweb.com/sqweb-beta.js";
-            document.getElementsByTagName("head")[0].appendChild(script);
-        </script>';
+                id_site: '. $this->id_site .',
+                    debug: '. $this->debug .',
+                    targeting: '. $this->targeting .',
+                    beacon: '. $this->beacon .',
+                    dwide: '. $this->dwide .',
+                    i18n: "'. $this->lang .'",
+                    msg: "'. $this->message .'"};
+                var script = document.createElement("script");
+                script.type = "text/javascript";
+                script.src = "//cdn.sqweb.com/sqweb-beta.js";
+                document.getElementsByTagName("head")[0].appendChild(script);
+            </script>';
     }
 
     /**
