@@ -59,7 +59,6 @@ class SqwebController extends Controller
             return ($this->response->credit);
         }
         return (0);
-
     }
 
     public function script()
