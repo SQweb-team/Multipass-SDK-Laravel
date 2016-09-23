@@ -95,7 +95,8 @@ class SqwebController extends Controller
         }
     }
 
-    function sqw_balise($balise, $match) {
+    public function sqwBalise($balise, $match)
+    {
         if (preg_match('/<(\w+)(?(?!.+\/>).*>|$)/', $match, $tmp)) {
             if (!isset($balise)) {
                 $balise = array();
@@ -110,32 +111,34 @@ class SqwebController extends Controller
         return $balise;
     }
 
-    function transparent($text, $percent = 100) {
+    public function transparent($text, $percent = 100)
+    {
         if (self::checkCredits() == 1 || $percent == 100 || empty($text)) {
             return $text;
         }
         if ($percent == 0) {
             return '';
         }
-        $array_text = preg_split('/(<.+?><\/.+?>)|(<.+?>)|( )/', $text, 0, PREG_SPLIT_NO_EMPTY | PREG_SPLIT_DELIM_CAPTURE);
-        foreach (array_keys($array_text, ' ', true) as $key) {
-            unset($array_text[ $key ]);
+        $arr_txt = preg_split('/(<.+?><\/.+?>)|(<.+?>)|( )/', $text, 0, PREG_SPLIT_NO_EMPTY | PREG_SPLIT_DELIM_CAPTURE);
+        foreach (array_keys($arr_txt, ' ', true) as $key) {
+            unset($arr_txt[ $key ]);
         }
-        $array_text = array_values($array_text);
-        $words = count($array_text);
+        $arr_txt = array_values($arr_txt);
+        $words = count($arr_txt);
         $nbr = ceil($words / 100 * $percent);
         $lambda = (1 / $nbr);
         $alpha = 1;
         $begin = 0;
         $balise = array();
         while ($begin < $nbr) {
-            if (isset($array_text[$begin + 1])) {
-                if (preg_match('/<.+?>/', $array_text[ $begin ], $match)) {
-                    $balise = sqw_balise($balise, $match[0]);
-                    $final[] = $array_text[ $begin ];
+            if (isset($arr_txt[$begin + 1])) {
+                if (preg_match('/<.+?>/', $arr_txt[ $begin ], $match)) {
+                    $balise = sqwBalise($balise, $match[0]);
+                    $final[] = $arr_txt[ $begin ];
                     $nbr++;
                 } else {
-                    $final[] = '<span style="opacity: ' . number_format($alpha, 5, '.', '') . '">' . $array_text[ $begin ] . '</span>';
+                    $tmp = number_format($alpha, 5, '.', '');
+                    $final[] = '<span style="opacity: ' . $tmp . '">' . $arr_txt[ $begin ] . '</span>';
                     $alpha -= $lambda;
                 }
                 $begin++;
