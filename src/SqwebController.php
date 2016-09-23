@@ -9,7 +9,7 @@ namespace Sqweb\Laravel_sdk;
 
 define('SDK', 'SQweb/SDK-Laravel 1.0.1');
 
-use \DateTime;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Config\Repository;
 use App\Http\Controllers\Controller;
@@ -95,46 +95,80 @@ class SqwebController extends Controller
         }
     }
 
-    public function transparent($text, $percent = 0)
-    {
-        if (self::checkCredits() == 0 && $percent >= 0 && $percent <= 100) {
-            if (0 == $percent) {
-                return '';
+    function sqw_balise($balise, $match) {
+        if (preg_match('/<(\w+)(?(?!.+\/>).*>|$)/', $match, $tmp)) {
+            if (!isset($balise)) {
+                $balise = array();
             }
-            $arrayText = explode(' ', $text);
-            $words = count(explode(' ', $text));
-            $nbr = ceil($words / 100 * $percent);
-            $lambda = (1 / $nbr);
-            $alpha = 1;
-            $begin = 0;
-            while ($begin < $nbr) {
-                $final[ $begin ] = '<span style="opacity: '. $alpha .'">'. $arrayText[ $begin ] .'</span>';
-                $begin++;
-                $alpha -= $lambda;
-            }
-            $final = implode(' ', $final);
-            return $final;
+            $balise[] = $tmp[1];
         }
-        return $text;
+        foreach ($balise as $key => $value) {
+            if (preg_match('/<\/(.+)>/', $value, $tmp)) {
+                unset($balise[ $key ]);
+            }
+        }
+        return $balise;
     }
 
-    public function postLimitArticle()
+    function transparent($text, $percent = 100) {
+        if (self::checkCredits() == 1 || $percent == 100 || empty($text)) {
+            return $text;
+        }
+        if ($percent == 0) {
+            return '';
+        }
+        $array_text = preg_split('/(<.+?><\/.+?>)|(<.+?>)|( )/', $text, 0, PREG_SPLIT_NO_EMPTY | PREG_SPLIT_DELIM_CAPTURE);
+        foreach (array_keys($array_text, ' ', true) as $key) {
+            unset($array_text[ $key ]);
+        }
+        $array_text = array_values($array_text);
+        $words = count($array_text);
+        $nbr = ceil($words / 100 * $percent);
+        $lambda = (1 / $nbr);
+        $alpha = 1;
+        $begin = 0;
+        $balise = array();
+        while ($begin < $nbr) {
+            if (isset($array_text[$begin + 1])) {
+                if (preg_match('/<.+?>/', $array_text[ $begin ], $match)) {
+                    $balise = sqw_balise($balise, $match[0]);
+                    $final[] = $array_text[ $begin ];
+                    $nbr++;
+                } else {
+                    $final[] = '<span style="opacity: ' . number_format($alpha, 5, '.', '') . '">' . $array_text[ $begin ] . '</span>';
+                    $alpha -= $lambda;
+                }
+                $begin++;
+            }
+        }
+        foreach ($balise as $value) {
+            $final[] = '</' . $value . '>';
+        }
+        $final = implode(' ', $final);
+        return $final;
+    }
+
+    public function postLimitArticle($limitation = 0)
     {
-        if (self::checkCredits() == 0) {
-            if (!isset($_COOKIE['sqwBlob']) || (isset($_COOKIE['sqwBlob']) && $_COOKIE['sqwBlob'] != -12345678)) {
+        if (self::checkCredits() == 0 && $limitation != 0) {
+            if (!isset($_COOKIE['sqwBlob']) || (isset($_COOKIE['sqwBlob']) && $_COOKIE['sqwBlob'] != -7610679)) {
                 $ip2 = ip2long($_SERVER['REMOTE_ADDR']);
                 if (!isset($_COOKIE['sqwBlob'])) {
                     $sqwBlob = 1;
                 } else {
                     $sqwBlob = ($_COOKIE['sqwBlob'] / 2) - $ip2 - 2 + 1;
                 }
-                if ($this->limit_article > 0 && $sqwBlob <= $this->limit_article) {
+                if ($limitation > 0 && $sqwBlob <= $limitation) {
                     $tmp = ($sqwBlob + $ip2 + 2) * 2;
                     setcookie('sqwBlob', $tmp, time()+60*60*24);
+                    return true;
                 } else {
-                    setcookie('sqwBlob', -12345678, time()+60*60*24);
+                    setcookie('sqwBlob', -7610679, time()+60*60*24);
                 }
             }
+            return false;
+        } else {
+            return true;
         }
     }
 
@@ -143,19 +177,11 @@ class SqwebController extends Controller
         return (1 === preg_match('~^[1-9][0-9]*$~', $string));
     }
 
-    public function dateBeforeDisplay($text, $waitDate, $publicationDate)
+    public function waitToDisplay($content, $date, $format, $wait = 0)
     {
-        if (self::checkCredits() === 0) {
-            $waitDate = $waitDate * 86400;
-            if (self::isTimestamp($publicationDate) === false) {
-                $publicationDate = strToTime($publicationDate);
-            }
-            $final = $publicationDate + $waitDate;
-            if ($final <= time()) {
-                return $text;
-            }
-            return '';
+        if ($wait == 0 || self::checkCredits() == 1) {
+            return $content;
         }
-        return $text;
+        return Carbon::now()->gte(Carbon::createFromFormat($format, $date)->addDay($wait)) == false ? '' : $content;
     }
 }
