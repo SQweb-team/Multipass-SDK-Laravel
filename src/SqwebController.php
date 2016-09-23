@@ -151,7 +151,7 @@ class SqwebController extends Controller
         return $final;
     }
 
-    public function postLimitArticle($limitation = 0)
+    public function limitArticle($limitation = 0)
     {
         if (self::checkCredits() == 0 && $limitation != 0) {
             if (!isset($_COOKIE['sqwBlob']) || (isset($_COOKIE['sqwBlob']) && $_COOKIE['sqwBlob'] != -7610679)) {
