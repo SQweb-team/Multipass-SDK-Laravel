@@ -8,5 +8,4 @@ return [
     'dwide'         => 'false',
     'lang'          => 'fr',
     'message'       => '',
-    'limit_article' => 5,
 ];
