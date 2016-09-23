@@ -7,7 +7,7 @@
 
 namespace Sqweb\Laravel_sdk;
 
-define('SDK', 'SQweb/SDK-Laravel 1.0.2');
+define('SDK', 'SQweb/SDK-Laravel 1.1.0');
 
 use Carbon\Carbon;
 use Illuminate\Http\Request;
