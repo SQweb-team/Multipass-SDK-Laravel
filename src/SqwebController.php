@@ -7,7 +7,7 @@
 
 namespace Sqweb\Laravel_sdk;
 
-define('SDK', 'SQweb/SDK-Laravel 1.0.1');
+define('SDK', 'SQweb/SDK-Laravel 1.0.2');
 
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -25,10 +25,7 @@ class SqwebController extends Controller
 
     public function __construct()
     {
-        $config = !empty(config('sqweb')) ? config('sqweb') : config('sqweb_default_config');
-        foreach ($config as $key => $value) {
-            $this->$key = $value;
-        }
+        $this->config = !empty(config('sqweb')) ? config('sqweb') : config('sqweb_default_config');
     }
 
     /**
@@ -39,9 +36,10 @@ class SqwebController extends Controller
     public function checkCredits()
     {
         if (empty($this->response)) {
-            if (isset($_COOKIE['sqw_z']) && null !== $this->id_site) {
+            if (isset($_COOKIE['sqw_z']) && null !== $this->config['id_site']) {
                 $curl = curl_init();
                 curl_setopt_array($curl, array(
+
                     CURLOPT_URL => 'https://api.sqweb.com/token/check',
                     CURLOPT_RETURNTRANSFER => true,
                     CURLOPT_CONNECTTIMEOUT_MS => 1000,
@@ -49,7 +47,7 @@ class SqwebController extends Controller
                     CURLOPT_USERAGENT => SDK,
                     CURLOPT_POSTFIELDS => array(
                         'token' => $_COOKIE['sqw_z'],
-                        'site_id' => $this->id_site,
+                        'site_id' => $this->config['id_site'],
                     ),
                 ));
                 $response = curl_exec($curl);
@@ -65,20 +63,24 @@ class SqwebController extends Controller
 
     public function script()
     {
+        if ($this->config['targeting'] && $this->config['beacon']) {
+            $this->beacon = 0;
+        }
+
         echo '<script>
             var _sqw = {
-                id_site: '. $this->id_site .',
-                debug: '. $this->debug .',
-                targeting: '. $this->targeting .',
-                beacon: '. $this->beacon .',
-                dwide: '. $this->dwide .',
-                i18n: "'. $this->lang .'",
-                msg: "'. $this->message .'"};
-            var script = document.createElement("script");
-            script.type = "text/javascript";
-            script.src = "//cdn.sqweb.com/sqweb-beta.js";
-            document.getElementsByTagName("head")[0].appendChild(script);
-        </script>';
+                id_site: '. $this->config['id_site'] .',
+                    debug: '. $this->config['debug'] .',
+                    targeting: '. $this->config['targeting'] .',
+                    beacon: '. $this->config['beacon'] .',
+                    dwide: '. $this->config['dwide'] .',
+                    i18n: "'. $this->config['lang'] .'",
+                    msg: "'. $this->config['message'] .'"};
+                var script = document.createElement("script");
+                script.type = "text/javascript";
+                script.src = "//cdn.sqweb.com/sqweb-beta.js";
+                document.getElementsByTagName("head")[0].appendChild(script);
+            </script>';
     }
 
     /**

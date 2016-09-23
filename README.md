@@ -6,13 +6,11 @@ SQweb Laravel Package
 [![Dependency Status](https://www.versioneye.com/user/projects/570672f9fcd19a0051854599/badge.svg)](https://www.versioneye.com/user/projects/570672f9fcd19a0051854599)
 [![License](https://img.shields.io/badge/license-GPL%20v3-428F7E.svg)](http://opensource.org/licenses/GPL-3.0)
 
-**This package enables you to easily integrate SQweb on your Laravel powered site.**
+**This package allows you to easily integrate SQweb on your Laravel powered website.**
 
 ##Requirements
 
 **This SDK has been tested with PHP 5.5 and greater.**
-
-The current Version of Laravel requires [PHP 5.5.9 or greater](https://laravel.com/docs/5.2#server-requirements).
 
 We are unable to provide official support for earlier versions. For more information about end of life PHP branches, [see this page](http://php.net/supported-versions.php).
 
@@ -25,15 +23,15 @@ If you're using WordPress, we've made it easy for you. Download the SQweb plugin
 ###Using Composer
 
 1. In your project root, execute `composer require sqweb/laravel_sdk`;
-2. In `./config/app.php`, add this line to your providers array : `Sqweb\Laravel_sdk\SqwebServiceProvider::class`.
-3. Execute `php artisan vendor:publish` at the root of your project to create the configuration file.
-4. Go to `config/sqweb.php` and set your `ID_SITE`.
+2. Now, go to config/app.php and add this line to your providers array : `Sqweb\Laravel_sdk\SqwebServiceProvider::class.
+3. Type `php artisan vendor:publish` at the root of your project to create the configuration file.
+4. Sets the `SQWEB_SITE_ID` variable in your .env file to your SQweb website ID.
 
 For additional settings, see "[Options](#options)" below.
 
 ##Usage
 
-The SDK is super basic. Here's how to use it :
+The SDK is really simple to use. Here's how to:
 
 ###1. Tagging your pages
 
@@ -52,7 +50,7 @@ This function checks if the user has credits, so that you can disable ads and/or
 Use it like this:
 
 ```php
-@if ($sqweb->checkCredits() > 0)
+@if ($sqweb->checkCredits())
     //CONTENT
 @else
     //ADS
@@ -88,9 +86,9 @@ one two
 ```php
 function waitToDisplay($your_content, $publication_date, $date_format, $wait) { ... }
 ```
-`$publication_date` is the date when your content is published on your website.
-`$date_format` is the format of your publication date ('Y-m-d' for '2016-12-18').
-`$wait` is the number of day you want to wait before showing this content to free users.
+1. `$publication_date` is the date when your content is published on your website.
+2. `$date_format` is the format of your publication date ('Y-m-d' for '2016-12-18').
+3. `$wait` is the number of day you want to wait before showing this content to free users.
 
 Example:
 ```php
@@ -114,16 +112,16 @@ Example if I want to display only 5 articles to free users:
 
 ##Options
 
-Unless otherwise noted, these options default to `false`. You can set them in `config/sqweb.php`, where you defined your `ID_SITE`.
+Set these variables in your .env file to enable or disable them.
 
 |Option|Description
 |---|---|
-|`msg`|A custom message that will be shown to your adblockers. If using quotes, you must escape them.|
-|`targeting`|Only show the button to detected adblockers. Cannot be combined with the `beacon` mode.|
-|`beacon`|Monitor adblocking rates quietly, without showing a SQweb button or banner to the end users.|
-|`debug`|Output various messages to the browser console while the plugin executes.|
-|`dwide`|Set to `false` to only enable SQweb on the current domain. Defaults to `true`.|
-|`lang`|You may pick between `en` and `fr`.|
+|`SQWEB_SITE_ID`|Sets your website SQweb ID. Ex: 123456.|
+|`SQWEB_DEBUG`|Outputs various messages to the browser console while the plugin executes. Disabled by default. 1 (activated) or 0 (deactivated).|
+|`SQWEB_TARGET`|Only shows the button to users with adblockers. Disabled by default. 1 (activated) or 0 (deactivated).|
+|`SQWEB_DWIDE`|Disabling this option will limit SQweb to the current domain. Enabled by default. 1 (activated) or 0 (deactivated).|
+|`SQWEB_LANG`|Sets the language. Currently supports `en` (English) and `fr` (French). Defaults to `en`|
+|`SQWEB_MESSAGE`|A custom message is displayed to users with an adblocker enabled. Ex:"Please deactivate your adblocker on this website, or support us by using Multipass!". Empty by default.|
 
 
 ##Contributing
@@ -148,4 +146,4 @@ This program is free software ; you can redistribute it and/or modify it under t
 
 This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY ; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details
 
-You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
+You should have received a copy of the GNU General Public License along with this program. If not, see <http://www.gnu.org/licenses/>.
