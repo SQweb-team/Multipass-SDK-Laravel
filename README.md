@@ -23,7 +23,7 @@ If you're using WordPress, we've made it easy for you. Download the SQweb plugin
 ###Using Composer
 
 1. In your project root, execute `composer require sqweb/laravel_sdk`;
-2. Now, go to config/app.php and add this line to your providers array : `Sqweb\Laravel_sdk\SqwebServiceProvider::class.
+2. Now, go to config/app.php and add this line to your providers array: `Sqweb\Laravel_sdk\SqwebServiceProvider::class,`.
 3. Type `php artisan vendor:publish` at the root of your project to create the configuration file.
 4. Sets the `SQWEB_SITE_ID` variable in your .env file to your SQweb website ID.
 
