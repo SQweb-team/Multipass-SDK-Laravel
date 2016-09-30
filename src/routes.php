@@ -1,3 +1,3 @@
 <?php
 
-Route::post('article/check', 'sqweb\laravel_sdk\SqwebController@postLimitArticle');
+// Route::post('article/check', 'sqweb\laravel_sdk\SqwebController@postLimitArticle');

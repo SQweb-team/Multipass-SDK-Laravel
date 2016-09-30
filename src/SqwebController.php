@@ -7,7 +7,7 @@
 
 namespace Sqweb\Laravel_sdk;
 
-define('SDK', 'SQweb/SDK-Laravel 1.1.0');
+define('SDK', 'SQweb/SDK-Laravel 1.2.0');
 
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -182,11 +182,11 @@ class SqwebController extends Controller
         return (1 === preg_match('~^[1-9][0-9]*$~', $string));
     }
 
-    public function waitToDisplay($content, $date, $format, $wait = 0)
+    public function waitToDisplay($date, $format, $wait = 0)
     {
         if ($wait == 0 || self::checkCredits() == 1) {
-            return $content;
+            return true;
         }
-        return Carbon::now()->gte(Carbon::createFromFormat($format, $date)->addDay($wait)) == false ? '' : $content;
+        return Carbon::now()->gte(Carbon::createFromFormat($format, $date)->addDay($wait)) == false ? false : true;
     }
 }

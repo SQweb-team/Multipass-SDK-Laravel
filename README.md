@@ -75,7 +75,7 @@ function transparent($your_content, $percent) { ... }
 
 Example:
 ```php
-{{ echo transparent('one two three four', 50) }}
+{!! $sqweb->transparent('one two three four', 50) !!}
 ```
 Will display for free users:
 ```
@@ -84,7 +84,7 @@ one two
 
 2.The following function is used to display your content later for non paying users:
 ```php
-function waitToDisplay($your_content, $publication_date, $date_format, $wait) { ... }
+function waitToDisplay($publication_date, $date_format, $wait) { ... }
 ```
 1. `$publication_date` is the date when your content is published on your website.
 2. `$date_format` is the format of your publication date ('Y-m-d' for '2016-12-18').
@@ -92,7 +92,11 @@ function waitToDisplay($your_content, $publication_date, $date_format, $wait) { 
 
 Example:
 ```php
-{{ echo waitToDisplay('I will appear for everyone in 2 days', '15/09/16', 'd/m/y', 2) }}
+@if($sqweb->waitToDisplay('15/09/16', 'd/m/y', 2))
+	Put your content here
+@else
+	Here you can display a message that free users will see while your article is not displayed
+@end
 ```
 
 3.The next function is used to limit the number of articles free users can read a day:
@@ -103,7 +107,7 @@ function limitArticle($number_of_articles) { ... }
 
 Example if I want to display only 5 articles to free users:
 ```php
-@if (limitArticle(5) == true)
+@if ($sqweb->limitArticle(5) == true)
 	echo "This is my article";
 @else
 	echo "Sorry, you reached the limit of pages you can see today, come back tomorrow or subscribe to Multipass to get unlimited articles !";
