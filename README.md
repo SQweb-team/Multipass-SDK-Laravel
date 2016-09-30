@@ -25,7 +25,7 @@ If you're using WordPress, we've made it easy for you. Download the SQweb plugin
 1. In your project root, execute `composer require sqweb/laravel_sdk`;
 2. Now, go to config/app.php and add this line to your providers array: `Sqweb\Laravel_sdk\SqwebServiceProvider::class,`.
 3. Type `php artisan vendor:publish` at the root of your project to create the configuration file.
-4. Sets the `SQWEB_SITE_ID` variable in your .env file to your SQweb website ID.
+4. Sets the `SQWEB_ID_SITE` variable in your .env file to your SQweb website ID.
 
 For additional settings, see "[Options](#options)" below.
 
@@ -116,7 +116,7 @@ Set these variables in your .env file to enable or disable them.
 
 |Option|Description
 |---|---|
-|`SQWEB_SITE_ID`|Sets your website SQweb ID. Ex: 123456.|
+|`SQWEB_ID_SITE`|Sets your website SQweb ID. Ex: 123456.|
 |`SQWEB_DEBUG`|Outputs various messages to the browser console while the plugin executes. Disabled by default. 1 (activated) or 0 (deactivated).|
 |`SQWEB_TARGET`|Only shows the button to users with adblockers. Disabled by default. 1 (activated) or 0 (deactivated).|
 |`SQWEB_DWIDE`|Disabling this option will limit SQweb to the current domain. Enabled by default. 1 (activated) or 0 (deactivated).|
