@@ -1,32 +1,28 @@
 language:
-    - php
-
+- php
 php:
-    - 5.5
-    - 5.6
-    - 7.0
-    - hhvm
-
+- 5.5
+- 5.6
+- 7.0
+- hhvm
 matrix:
-    allow_failures:
-        - php: hhvm
-
+  allow_failures:
+  - php: hhvm
 cache:
-    directories:
-        - vendor
-
+  directories:
+  - vendor
 before_script:
-    - composer self-update
-    - composer install
-    - phpenv rehash
-    - vendor/bin/phpcs -i
-
+- composer self-update
+- composer install
+- phpenv rehash
+- vendor/bin/phpcs -i
 script:
-    - vendor/bin/phpcs --standard=PSR2 src/ --extensions=php
-    - vendor/bin/phpcpd src/
-
+- vendor/bin/phpcs --standard=PSR2 src/ --extensions=php
+- vendor/bin/phpcpd src/
 notifications:
-    slack: nwork:g1c5FQpTcE9ZxPTAPdHsUwPr
-        on_success: never
-        on_failure: always
-    email: false
+  slack:
+    on_success: never
+    on_failure: always
+    rooms:
+      secure: Wrdmkzx1IsDSqukdditq26bEUjJXfHcIfuNeK/prLJQEvu05oWkGwVJCbp7SNUVfZOGXw+6kwQX/p/KKjJBHM4lBYXdQxgzwZWQMIjoCpU0j5xo6Vf+79swjTfKY4fVirAz0exHikcS9X9Xl2R3lbJFECyDpMZlT4LF5EQ/UAE1nkNOXPaU6tHRbtaKdMBFQUp4KQdi/hLyfo3uS/vuNseGbArXCfaGaX7SXIEjQzSccfWi+91UP1MKXkJMDUN5Wr9MhkfbJyTdy6IJfO1S2XMs+aVm3V8WsuMnL0pjxdrl3Co8MD5r5ehUQUNnMzHnrjmp9MfJrkHbpto/3Tr010dUJbgNHws3u6hkAxyAJ4yUeJs4egMu1WmPyf7x3PDOlB+4JCEOQLe0C3KuVAA8Yd5//uJTBedcQ8Y1S90vuJjHUOfkPJRp9V8Szt820NtuWBwxKkhE/5gjk0js6tFPuwoO3p3/rQEVnRglMNDNZQm4f+4AIgRAoh7uMABt3qzE+cYcb5fwIaPZA8lWb0+ic7yRH2jkpUDMSIxex/tK2kdmtW0dt22qRLHrEYSh71cD/f6WsmW8PDpkpbWEjgEtxfGSgAl94sWRilmIuvcXmSNMyGmWmwRdi3xNWlA5Wz2Oe6efUEqUCvCjtIDj7fX6vP2PQLdrQaJjUrzR5FmXFSxk=
+  email: false
