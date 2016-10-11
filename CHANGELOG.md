@@ -1,3 +1,7 @@
+### v1.1.1 - 2016-10-11
+
+* Fix bad call to sqwBalise
+
 ### v1.1.0 - 2016-09-23
 
 * Added transparent() function to hide a part of your content.
