@@ -1,3 +1,7 @@
+### v1.1.2 - 2016-10-31
+
+* Updated client script URL (now HTTPS only).
+
 ### v1.1.1 - 2016-10-11
 
 * Fix bad call to sqwBalise

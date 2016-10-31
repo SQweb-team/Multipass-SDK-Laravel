@@ -56,7 +56,7 @@ class TestSqweb extends \TestCase
                 msg: "'. $sqweb->message .'"};
             var script = document.createElement("script");
             script.type = "text/javascript";
-            script.src = "//cdn.sqweb.com/sqweb-beta.js";
+            script.src = "https://cdn.sqweb.com/sqweb.js";
             document.getElementsByTagName("head")[0].appendChild(script);
         </script>', $output);
     }
