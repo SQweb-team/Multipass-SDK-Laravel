@@ -95,7 +95,6 @@ class SqwebController extends Controller
         } else {
             echo '<div class="sqweb-button"></div>';
         }
-
     }
 
     public function sqwBalise($balise, $match)
