@@ -7,7 +7,7 @@
 
 namespace Sqweb\Laravel_sdk;
 
-define('SDK', 'SQweb/SDK-Laravel 1.2.0');
+define('SDK', 'SQweb/SDK-Laravel 1.1.3');
 
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -88,10 +88,10 @@ class SqwebController extends Controller
      * @param null $color
      */
 
-    public function button($color = null)
+    public function button($size = null)
     {
-        if ('grey' === $color) {
-            echo '<div class="sqweb-button sqweb-grey"></div>';
+        if ('slim' === $size) {
+            echo '<div class="sqweb-button multipass-slim"></div>';
         } else {
             echo '<div class="sqweb-button"></div>';
         }

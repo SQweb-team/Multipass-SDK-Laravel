@@ -1,3 +1,7 @@
+### v1.1.3 - 2016-11-16
+
+* Added 'slim' option to Multipass button.
+
 ### v1.1.2 - 2016-10-31
 
 * Updated client script URL (now HTTPS only).
