@@ -88,13 +88,14 @@ class SqwebController extends Controller
      * @param null $color
      */
 
-    public function button($color = null)
+    public function button($size = null)
     {
-        if ('grey' === $color) {
-            echo '<div class="sqweb-button sqweb-grey"></div>';
+        if ('slim' === $size) {
+            echo '<div class="sqweb-button multipass-slim"></div>';
         } else {
             echo '<div class="sqweb-button"></div>';
         }
+
     }
 
     public function sqwBalise($balise, $match)

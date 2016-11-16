@@ -65,6 +65,12 @@ Finally, use this code to get the Multipass button on your pages:
 {{ $sqweb->button() }}
 ```
 
+We have a smaller version of the button, to use it, pass the string 'slim' to the function e.g:
+
+```php
+{{ $sqweb->button('slim') }}
+```
+
 ###4. More functions
 
 1.This function is used to display only a part of your content to non premium users:
