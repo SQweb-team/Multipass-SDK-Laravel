@@ -25,7 +25,12 @@ If you're using WordPress, we've made it easy for you. Download the SQweb plugin
 1. In your project root, execute `composer require sqweb/laravel_sdk`;
 2. Now, go to config/app.php and add this line to your providers array: `Sqweb\Laravel_sdk\SqwebServiceProvider::class,`.
 3. Type `php artisan vendor:publish` at the root of your project to create the configuration file.
-4. Sets the `SQWEB_ID_SITE` variable in your .env file to your SQweb website ID.
+4. In `.env`, paste the following configuration and **set the variable `SQW_ID_SITE` with your website ID and the variable `SQW_SITENAME` with the name you want to show on the large multipass button**.
+
+```php
+SQW_ID_SITE=YOUR_WEBSITE_ID
+SQW_SITENAME=YOUR_WEBSITE_NAME
+```
 
 For additional settings, see "[Options](#options)" below.
 
@@ -65,19 +70,29 @@ Finally, use this code to get the Multipass button on your pages:
 {{ $sqweb->button() }}
 ```
 
-We have a smaller version of the button, to use it, pass the string 'slim' to the function e.g:
+We have differents sizes for the button, to use them, pass a string to the function e.g:
 
 ```php
+{{ $sqweb->button('tiny') }}
+OR
 {{ $sqweb->button('slim') }}
+OR
+{{ $sqweb->button('large') }}
 ```
 
 ###4. More functions
 
 1.This function is used to display only a part of your content to non premium users:
 ```php
-function transparent($your_content, $percent) { ... }
+/**
+ * Put opacity to your text
+ * Returns the text with opcaity style.
+ * @param text, which is your text.
+ * @param int percent which is the percent of your text you want to show.
+ * @return string
+ */
+    public function transparent($text, $percent = 100) { ... }
 ```
-`$percent` is the percent of your content you want to display to everyone.
 
 Example:
 ```php
@@ -90,26 +105,33 @@ one two
 
 2.The following function is used to display your content later for non paying users:
 ```php
-function waitToDisplay($publication_date, $date_format, $wait) { ... }
+	/**
+	 * Display your premium content at a later date to non-paying users.
+	 * @param  string  $date  When to publish the content on your site. It must be an ISO format(YYYY-MM-DD).
+	 * @param  integer $wait  Days to wait before showing this content to free users.
+	 * @return bool
+	 */
+	public function waitToDisplay($date, $wait = 0) { ... }
 ```
-1. `$publication_date` is the date when your content is published on your website.
-2. `$date_format` is the format of your publication date ('Y-m-d' for '2016-12-18').
-3. `$wait` is the number of day you want to wait before showing this content to free users.
 
 Example:
 ```php
-@if($sqweb->waitToDisplay('15/09/16', 'd/m/y', 2))
-	Put your content here
+@if($sqweb->waitToDisplay('2016-09-15', 2))
+	The content here will appear the 2016-09-17, 2 days after the publication date for non paying users.
 @else
-	Here you can display a message that free users will see while your article is not displayed
+	Here you can put content that free users will see before the content above is available for all.
 @end
 ```
 
 3.The next function is used to limit the number of articles free users can read a day:
 ```php
-function limitArticle($number_of_articles) { ... }
+	/**
+     * Limit the number of articles free users can read per day.
+     * @param $limitation int The number of articles a free user can see.
+     * @return bool
+     */
+    public function limitArticle($limitation = 0) { ... }
 ```
-`$number_of_articles` is the number of articles a free user can see.
 
 Example if I want to display only 5 articles to free users:
 ```php
@@ -122,16 +144,18 @@ Example if I want to display only 5 articles to free users:
 
 ##Options
 
-Set these variables in your .env file to enable or disable them.
+Unless otherwise noted, these options default to `false`. You can set them in your `.env` file.
 
 |Option|Description
 |---|---|
-|`SQWEB_ID_SITE`|Sets your website SQweb ID. Ex: 123456.|
-|`SQWEB_DEBUG`|Outputs various messages to the browser console while the plugin executes. Disabled by default. 1 (activated) or 0 (deactivated).|
-|`SQWEB_TARGET`|Only shows the button to users with adblockers. Disabled by default. 1 (activated) or 0 (deactivated).|
-|`SQWEB_DWIDE`|Disabling this option will limit SQweb to the current domain. Enabled by default. 1 (activated) or 0 (deactivated).|
-|`SQWEB_LANG`|Sets the language. Currently supports `en` (English) and `fr` (French). Defaults to `en`|
-|`SQWEB_MESSAGE`|A custom message is displayed to users with an adblocker enabled. Ex:"Please deactivate your adblocker on this website, or support us by using Multipass!". Empty by default.|
+|`SQW_ID_SITE`|Sets your website SQweb ID. Ex: 123456.|
+|`SQW_SITENAME`|The name that will appear on the large version of our button. You must set this variable.|
+|`SQW_MESSAGE`|A custom message that will be shown to your adblockers. If using quotes, you must escape them.|
+|`SQW_TARGETING`|Only show the button to detected adblockers. Cannot be combined with the `beacon` mode.|
+|`SQW_BEACON`|Monitor adblocking rates quietly, without showing a SQweb button or banner to the end users.|
+|`SQW_DEBUG`|Output various messages to the browser console while the plugin executes.|
+|`SQW_DWIDE`|Set to `false` to only enable SQweb on the current domain. Defaults to `true`.|
+|`SQW_LANG`|You may pick between `en` and `fr`.|
 
 
 ##Contributing
