@@ -13,10 +13,11 @@ cache:
   - vendor
 before_script:
 - composer self-update
-- composer install
+- composer install --ignore-platform-reqs
 - phpenv rehash
 - vendor/bin/phpcs -i
 script:
+- vendor/bin/parallel-lint src tests config
 - vendor/bin/phpcs --standard=PSR2 src/ --extensions=php
 - vendor/bin/phpcpd src/
 notifications:
