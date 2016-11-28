@@ -2,9 +2,8 @@ SQweb Laravel Package
 ===
 
 [![Build Status](https://travis-ci.org/SQweb-team/SQweb-SDK-Laravel.svg?branch=master)](https://travis-ci.org/SQweb-team/SQweb-SDK-Laravel)
-[![Code Climate](https://codeclimate.com/github/SQweb-team/SQweb-SDK-Laravel/badges/gpa.svg)](https://codeclimate.com/github/SQweb-team/SQweb-SDK-Laravel)
+[![Latest Stable Version](https://poser.pugx.org/sqweb/laravel_sdk/v/stable)](https://packagist.org/packages/sqweb/laravel_sdk)
 [![Dependency Status](https://www.versioneye.com/user/projects/570672f9fcd19a0051854599/badge.svg)](https://www.versioneye.com/user/projects/570672f9fcd19a0051854599)
-[![License](https://img.shields.io/badge/license-GPL%20v3-428F7E.svg)](http://opensource.org/licenses/GPL-3.0)
 
 **This package allows you to easily integrate SQweb on your Laravel powered website.**
 
@@ -148,8 +147,6 @@ Unless otherwise noted, these options default to `false`. You can set them in yo
 
 |Option|Description
 |---|---|
-|`SQW_ID_SITE`|Sets your website SQweb ID. Ex: 123456.|
-|`SQW_SITENAME`|The name that will appear on the large version of our button. You must set this variable.|
 |`SQW_MESSAGE`|A custom message that will be shown to your adblockers. If using quotes, you must escape them.|
 |`SQW_TARGETING`|Only show the button to detected adblockers. Cannot be combined with the `beacon` mode.|
 |`SQW_BEACON`|Monitor adblocking rates quietly, without showing a SQweb button or banner to the end users.|
@@ -171,6 +168,10 @@ All PHP code must conform to the [PSR2 Standard](http://www.php-fig.org/psr/psr-
 If you encounter any bug or unexpected behavior, you can either report it on Github using the bug tracker, or via email at `hello@sqweb.com`. We will be in touch as soon as possible.
 
 If you discover a security vulnerability within SQweb or this plugin, please send an e-mail to `hello@sqweb.com`. All security vulnerabilities will be promptly addressed.
+
+###Builds and Releases
+
+See [RELEASE.md](RELEASE.md).
 
 ##License
 
