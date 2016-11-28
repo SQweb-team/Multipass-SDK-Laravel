@@ -7,7 +7,7 @@
 
 namespace Sqweb\Laravel_sdk;
 
-define('SDK', 'SQweb/SDK-Laravel 1.1.3');
+define('SDK', 'SQweb/SDK-Laravel 1.2.0');
 
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -70,6 +70,7 @@ class SqwebController extends Controller
         echo '<script>
             var _sqw = {
                 id_site: '. $this->config['id_site'] .',
+                    sitename: ' . $this->config['sitename'] .',
                     debug: '. $this->config['debug'] .',
                     targeting: '. $this->config['targeting'] .',
                     beacon: '. $this->config['beacon'] .',
@@ -85,14 +86,18 @@ class SqwebController extends Controller
 
     /**
      * Create the target button div.
-     * @param null $color
+     * @param null $size
      */
 
     public function button($size = null)
     {
-        if ('slim' === $size) {
+        if ($size === 'tiny') {
+            echo '<div class="sqweb-button multipass-tiny"></div>';
+        } elseif ($size === 'slim') {
             echo '<div class="sqweb-button multipass-slim"></div>';
-        } else {
+        } elseif ($size === 'large') {
+            echo '<div class="sqweb-button multipass-large"></div>';
+        } else { // multipass-regular
             echo '<div class="sqweb-button"></div>';
         }
     }
@@ -113,6 +118,13 @@ class SqwebController extends Controller
         return $balise;
     }
 
+    /**
+     * Put opacity to your text
+     * Returns text  with opcaity style.
+     * @param $text  Text you want to limit.
+     * @param int $percent Percent of your text you want to show.
+     * @return string
+     */
     public function transparent($text, $percent = 100)
     {
         if (self::checkCredits() == 1 || $percent == 100 || empty($text)) {
@@ -153,6 +165,11 @@ class SqwebController extends Controller
         return $final;
     }
 
+    /**
+     * Limit the number of articles free users can read per day.
+     * @param $limitation int The number of articles a free user can see.
+     * @return bool
+     */
     public function limitArticle($limitation = 0)
     {
         if (self::checkCredits() == 0 && $limitation != 0) {
@@ -182,11 +199,17 @@ class SqwebController extends Controller
         return (1 === preg_match('~^[1-9][0-9]*$~', $string));
     }
 
-    public function waitToDisplay($date, $format, $wait = 0)
+    /**
+     * Display your premium content at a later date to non-paying users.
+     * @param  string  $date  When to publish the content on your site. It must be an ISO format(YYYY-MM-DD).
+     * @param  integer $wait  Days to wait before showing this content to free users.
+     * @return bool
+     */
+    public function waitToDisplay($date, $wait = 0)
     {
         if ($wait == 0 || self::checkCredits() == 1) {
             return true;
         }
-        return Carbon::now()->gte(Carbon::createFromFormat($format, $date)->addDay($wait)) == false ? false : true;
+        return Carbon::now()->gte(Carbon::createFromFormat('Y-m-d', $date)->addDay($wait)) == false ? false : true;
     }
 }
