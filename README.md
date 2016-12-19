@@ -73,11 +73,11 @@ We have differents sizes for the button, to use them, pass a string to the funct
 
 ```php
 {{ $sqweb->button('tiny') }}
-OR
 {{ $sqweb->button('slim') }}
-OR
 {{ $sqweb->button('large') }}
 ```
+
+![Example Buttons](https://cdn.multipass.net/github/buttons@2x.png "Example Buttons")
 
 ###4. More functions
 
