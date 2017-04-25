@@ -21,14 +21,21 @@ If you're using WordPress, we've made it easy for you. Download the SQweb plugin
 ### Using Composer
 
 1. In your project root, execute `composer require sqweb/laravel_sdk`;
-2. Now, go to config/app.php and add this line to your providers array: `Sqweb\Laravel_sdk\SqwebServiceProvider::class,`.
+
+2. Now, go to config/app.php and add this line to your providers array:
+
+    ```php
+    Sqweb\Laravel_sdk\SqwebServiceProvider::class,
+    ```
+
 3. Type `php artisan vendor:publish` at the root of your project to create the configuration file.
+
 4. In `.env`, paste the following configuration and **set the variable `SQW_ID_SITE` with your website ID and the variable `SQW_SITENAME` with the name you want to show on the large multipass button**.
 
-```php
-SQW_ID_SITE=YOUR_WEBSITE_ID
-SQW_SITENAME=YOUR_WEBSITE_NAME
-```
+    ```php
+    SQW_ID_SITE=YOUR_WEBSITE_ID
+    SQW_SITENAME=YOUR_WEBSITE_NAME
+    ```
 
 For additional settings, see "[Options](#options)" below.
 
@@ -54,9 +61,9 @@ Use it like this:
 
 ```php
 @if ($sqweb->checkCredits())
-    //CONTENT
+    // CONTENT
 @else
-    //ADS
+    // ADS
 @endif
 ```
 
@@ -108,29 +115,29 @@ one two
 #### Display your content later for non paying users
 
 ```php
-	/**
-	 * Display your premium content at a later date to non-paying users.
-	 * @param  string  $date  When to publish the content on your site. It must be an ISO format(YYYY-MM-DD).
-	 * @param  integer $wait  Days to wait before showing this content to free users.
-	 * @return bool
-	 */
-	public function waitToDisplay($date, $wait = 0) { ... }
+    /**
+     * Display your premium content at a later date to non-paying users.
+     * @param  string  $date  When to publish the content on your site. It must be an ISO format(YYYY-MM-DD).
+     * @param  integer $wait  Days to wait before showing this content to free users.
+     * @return bool
+     */
+    public function waitToDisplay($date, $wait = 0) { ... }
 ```
 
 Example:
 
 ```php
 @if($sqweb->waitToDisplay('2016-09-15', 2))
-	The content here will appear the 2016-09-17, 2 days after the publication date for non paying users.
+    // The content here will appear the 2016-09-17, 2 days after the publication date for non paying users.
 @else
-	Here you can put content that free users will see before the content above is available for all.
+    // Here you can put content that free users will see before the content above is available for all.
 @end
 ```
 
 #### Limit the number of articles free users can read per day
 
 ```php
-	/**
+    /**
      * Limit the number of articles free users can read per day.
      * @param $limitation int The number of articles a free user can see.
      * @return bool
@@ -142,9 +149,9 @@ Example if I want to display only 5 articles to free users:
 
 ```php
 @if ($sqweb->limitArticle(5) == true)
-	echo "This is my article";
+    echo "This is my article";
 @else
-	echo "Sorry, you reached the limit of pages you can see today, come back tomorrow or subscribe to Multipass to get unlimited articles !";
+    echo "Sorry, you reached the limit of pages you can see today, come back tomorrow or subscribe to Multipass to get unlimited articles !";
 @endif
 ```
 
@@ -169,15 +176,15 @@ We welcome contributions and improvements.
 
 All PHP code must conform to the [PSR2 Standard](http://www.php-fig.org/psr/psr-2/).
 
+### Builds and Releases
+
+See [RELEASE.md](RELEASE.md).
+
 ## Bugs and Security Vulnerabilities
 
 If you encounter any bug or unexpected behavior, you can either report it on Github using the bug tracker, or via email at `hello@sqweb.com`. We will be in touch as soon as possible.
 
 If you discover a security vulnerability within SQweb or this plugin, please e-mail `security@sqweb.com`. Vulnerabilities will be promptly addressed.
-
-### Builds and Releases
-
-See [RELEASE.md](RELEASE.md).
 
 ## License
 
