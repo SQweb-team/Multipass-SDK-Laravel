@@ -1,5 +1,4 @@
-SQweb Laravel Package
-===
+# SQweb Laravel Package
 
 [![Build Status](https://travis-ci.org/SQweb-team/SQweb-SDK-Laravel.svg?branch=master)](https://travis-ci.org/SQweb-team/SQweb-SDK-Laravel)
 [![Latest Stable Version](https://poser.pugx.org/sqweb/laravel_sdk/v/stable)](https://packagist.org/packages/sqweb/laravel_sdk)
@@ -7,19 +6,19 @@ SQweb Laravel Package
 
 **This package allows you to easily integrate SQweb on your Laravel powered website.**
 
-##Requirements
+## Requirements
 
 **This SDK has been tested with PHP 5.5 and greater.**
 
 We are unable to provide official support for earlier versions. For more information about end of life PHP branches, [see this page](http://php.net/supported-versions.php).
 
-##Install
+## Install
 
 **This package is intended for websites powered by Laravel, and advanced integrations.**
 
 If you're using WordPress, we've made it easy for you. Download the SQweb plugin [directly from WordPress.org](https://wordpress.org/plugins/sqweb/), or check out the source [here](https://github.com/SQweb-team/SQweb-WordPress-Plugin).
 
-###Using Composer
+### Using Composer
 
 1. In your project root, execute `composer require sqweb/laravel_sdk`;
 2. Now, go to config/app.php and add this line to your providers array: `Sqweb\Laravel_sdk\SqwebServiceProvider::class,`.
@@ -33,11 +32,11 @@ SQW_SITENAME=YOUR_WEBSITE_NAME
 
 For additional settings, see "[Options](#options)" below.
 
-##Usage
+## Usage
 
 The SDK is really simple to use. Here's how to:
 
-###1. Tagging your pages
+### 1. Tagging your pages
 
 This function outputs the SQweb JavaScript tag. Insert it before the closing `</body>` tag in your HTML.
 
@@ -47,7 +46,7 @@ This function outputs the SQweb JavaScript tag. Insert it before the closing `</
 
 **If you previously had a SQweb JavaScript tag, make sure to remove it to avoid any conflicts.**
 
-###2. Checking the credits of your subscribers
+### 2. Checking the credits of your subscribers
 
 This function checks if the user has credits, so that you can disable ads and/or unlock premium content.
 
@@ -61,7 +60,7 @@ Use it like this:
 @endif
 ```
 
-###3. Showing the Multipass button
+### 3. Showing the Multipass button
 
 Finally, use this code to get the Multipass button on your pages:
 
@@ -79,9 +78,10 @@ We have differents sizes for the button, to use them, pass a string to the funct
 
 ![Example Buttons](https://cdn.multipass.net/github/buttons@2x.png "Example Buttons")
 
-###4. More functions
+### 4. More functions
 
-1.This function is used to display only a part of your content to non premium users:
+#### Display only a part of your content to non premium users
+
 ```php
 /**
  * Put opacity to your text
@@ -94,15 +94,19 @@ We have differents sizes for the button, to use them, pass a string to the funct
 ```
 
 Example:
+
 ```php
 {!! $sqweb->transparent('one two three four', 50) !!}
 ```
+
 Will display for free users:
-```
+
+```text
 one two
 ```
 
-2.The following function is used to display your content later for non paying users:
+#### Display your content later for non paying users
+
 ```php
 	/**
 	 * Display your premium content at a later date to non-paying users.
@@ -114,6 +118,7 @@ one two
 ```
 
 Example:
+
 ```php
 @if($sqweb->waitToDisplay('2016-09-15', 2))
 	The content here will appear the 2016-09-17, 2 days after the publication date for non paying users.
@@ -122,7 +127,8 @@ Example:
 @end
 ```
 
-3.The next function is used to limit the number of articles free users can read a day:
+#### Limit the number of articles free users can read per day
+
 ```php
 	/**
      * Limit the number of articles free users can read per day.
@@ -133,6 +139,7 @@ Example:
 ```
 
 Example if I want to display only 5 articles to free users:
+
 ```php
 @if ($sqweb->limitArticle(5) == true)
 	echo "This is my article";
@@ -141,7 +148,7 @@ Example if I want to display only 5 articles to free users:
 @endif
 ```
 
-##Options
+## Options
 
 Unless otherwise noted, these options default to `false`. You can set them in your `.env` file.
 
@@ -154,26 +161,25 @@ Unless otherwise noted, these options default to `false`. You can set them in yo
 |`SQW_DWIDE`|Set to `false` to only enable SQweb on the current domain. Defaults to `true`.|
 |`SQW_LANG`|You may pick between `en` and `fr`.|
 
-
-##Contributing
+## Contributing
 
 We welcome contributions and improvements.
 
-###Coding Style
+### Coding Style
 
 All PHP code must conform to the [PSR2 Standard](http://www.php-fig.org/psr/psr-2/).
 
-##Bugs and Security Vulnerabilities
+## Bugs and Security Vulnerabilities
 
 If you encounter any bug or unexpected behavior, you can either report it on Github using the bug tracker, or via email at `hello@sqweb.com`. We will be in touch as soon as possible.
 
 If you discover a security vulnerability within SQweb or this plugin, please e-mail `security@sqweb.com`. Vulnerabilities will be promptly addressed.
 
-###Builds and Releases
+### Builds and Releases
 
 See [RELEASE.md](RELEASE.md).
 
-##License
+## License
 
 Copyright (C) 2016 – SQweb
 
