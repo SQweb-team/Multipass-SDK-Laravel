@@ -39,7 +39,6 @@ class SqwebController extends Controller
             if (isset($_COOKIE['sqw_z']) && null !== $this->config['id_site']) {
                 $curl = curl_init();
                 curl_setopt_array($curl, array(
-
                     CURLOPT_URL => 'https://api.sqweb.com/token/check',
                     CURLOPT_RETURNTRANSFER => true,
                     CURLOPT_CONNECTTIMEOUT_MS => 1000,
@@ -72,6 +71,7 @@ class SqwebController extends Controller
                 id_site: '. $this->config['id_site'] .',
                     sitename: ' . $this->config['sitename'] .',
                     debug: '. $this->config['debug'] .',
+                    adblock_modal: '. $this->config['adblock_modal'] .',
                     targeting: '. $this->config['targeting'] .',
                     beacon: '. $this->config['beacon'] .',
                     dwide: '. $this->config['dwide'] .',
@@ -79,7 +79,7 @@ class SqwebController extends Controller
                     msg: "'. $this->config['message'] .'"};
                 var script = document.createElement("script");
                 script.type = "text/javascript";
-                script.src = "https://cdn.sqweb.com/sqweb.js";
+                script.src = "https://cdn.multipass.net/multipass.js";
                 document.getElementsByTagName("head")[0].appendChild(script);
             </script>';
     }
