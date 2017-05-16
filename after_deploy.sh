@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 
-# SQWEB - POST RELEASE SLACK NOTIFICATION
+# SQWEB - LARAVEL SDK - RELEASE NOTIFIER
 # ------------------------------------------------------------------------------
-# This script is called after a succesful deploy by Travis.
+# Let the Slack team know that the release was successful.
 
-curl -X POST --data-urlencode 'payload={"channel": "#sqw-dev-sdk", "text": "Version '$TRAVIS_TAG' of the Laravel SDK has been released."}' \
-	https://hooks.slack.com/services/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
+curl -X "POST" "https://hooks.slack.com/services/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" \
+	 -H "Content-Type: application/x-www-form-urlencoded; charset=utf-8" \
+	 --data-urlencode "payload={\"text\": \"$TRAVIS_TAG released on GitHub + Packagist.\"}"

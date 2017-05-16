@@ -1,25 +1,34 @@
 language:
 - php
+
 php:
-- 5.5
-- 5.6
-- 7.0
-- hhvm
+  - 5.5
+  - 5.6
+  - 7.0
+  - hhvm
+
 matrix:
   allow_failures:
-  - php: hhvm
+    - php: hhvm
+
 cache:
   directories:
   - vendor
+
 before_script:
-- composer self-update
-- composer install --ignore-platform-reqs
-- phpenv rehash
-- vendor/bin/phpcs -i
+  - composer self-update
+  - composer install --ignore-platform-reqs
+  - phpenv rehash
+  - vendor/bin/phpcs -i
+
 script:
-- vendor/bin/parallel-lint src tests config
-- vendor/bin/phpcs --standard=PSR2 src/ --extensions=php
-- vendor/bin/phpcpd src/
+  - vendor/bin/parallel-lint src tests config
+  - vendor/bin/phpcs --standard=PSR2 src/ --extensions=php
+  - vendor/bin/phpcpd src/
+
+after_success:
+  - wget https://github.com/SQweb-team/SQweb-SDK-Laravel/archive/v1.1.3.zip
+
 notifications:
   slack:
     on_success: never
@@ -28,5 +37,15 @@ notifications:
       secure: Wrdmkzx1IsDSqukdditq26bEUjJXfHcIfuNeK/prLJQEvu05oWkGwVJCbp7SNUVfZOGXw+6kwQX/p/KKjJBHM4lBYXdQxgzwZWQMIjoCpU0j5xo6Vf+79swjTfKY4fVirAz0exHikcS9X9Xl2R3lbJFECyDpMZlT4LF5EQ/UAE1nkNOXPaU6tHRbtaKdMBFQUp4KQdi/hLyfo3uS/vuNseGbArXCfaGaX7SXIEjQzSccfWi+91UP1MKXkJMDUN5Wr9MhkfbJyTdy6IJfO1S2XMs+aVm3V8WsuMnL0pjxdrl3Co8MD5r5ehUQUNnMzHnrjmp9MfJrkHbpto/3Tr010dUJbgNHws3u6hkAxyAJ4yUeJs4egMu1WmPyf7x3PDOlB+4JCEOQLe0C3KuVAA8Yd5//uJTBedcQ8Y1S90vuJjHUOfkPJRp9V8Szt820NtuWBwxKkhE/5gjk0js6tFPuwoO3p3/rQEVnRglMNDNZQm4f+4AIgRAoh7uMABt3qzE+cYcb5fwIaPZA8lWb0+ic7yRH2jkpUDMSIxex/tK2kdmtW0dt22qRLHrEYSh71cD/f6WsmW8PDpkpbWEjgEtxfGSgAl94sWRilmIuvcXmSNMyGmWmwRdi3xNWlA5Wz2Oe6efUEqUCvCjtIDj7fX6vP2PQLdrQaJjUrzR5FmXFSxk=
   email: false
 
+deploy:
+  skip_cleanup: true
+  provider: releases
+  api_key:
+    secure: rWWw/0Zlh3QsUVs+CpLZ/r8uxe1FT6fUtFLrW+F1lBeOj3603Rg1UWn/0QvZrpvYv6Qv1DpuECSlPv6HgamPoNsnU/p8Q6SVaCECgsegERXsUqkaEzQm87Ru2P2VDP7gLA+VzzBO4N3+bjsgAyl0JMSy743aIernCu3Z6iXp8tH3vnDIsVHz27x3h83lfh1uUA4auqyoCmPVo2sTyHWRMDV6stLOBTH4xxsTQWhVwadsJ3U7wxx/BpZ4Wz75yBGUFhc2Lx1+J1wuMhBA6iEotXIYy2vAJfkTNYYovovrfLc1+WUNXzI/sgOOTG5vPZCnbkjoQ1qjQFJ44yawNRq0wINFlfpnW8Qw9pXYzsxcbTOPpTQPktx6n9YJKgpErFYEsy8isC5p/GCpKGFO0i9vIaLrUEvSw2sioblm+W30Xn+ZhC2mBSfzx5b7a7atMnzqeWU1uAlwOIuWdH6uWZWkUfy9uVAAwS+NFxQhOz9RraDvNcdm19spz5aY58rdzSO35WiAOustq9P+9VjRPYnsNll93yTEfQ6Bzj0HgUx6T9+88yqZOMsk3mdHnbeSTcac7EXpDJN1/DBQxRKfJDoPIcI962b7R1Zk9yWJFBnA+htv4y9AHSIu/fZ5at9bo11+OFQ3VlN84rwEZmKAnMeNcIcj9X8Vc9C45sOOlsmvS3g=
+  file: $TRAVIS_TAG.zip
+  on:
+    repo: SQweb-team/SQweb-SDK-Laravel
+    php: 7.0
+
 after_deploy:
-  - ./after_deploy.sh
+  - "./after_deploy.sh"

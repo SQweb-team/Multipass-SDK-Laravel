@@ -5,5 +5,7 @@ This package is distributed through [Packagist.org](https://packagist.org/packag
 To release a new version :
 
 1. Make sure [CHANGELOG.MD](CHANGELOG.MD) is up to date.
-2. Tag a release in Git, using the following naming scheme v1.5.0.
+2. Tag a release in Git, using the following naming scheme `v1.5.0`.
 3. Push the tag.
+
+NB : Travis CI releases are only used to trigger automatic notifications, since Packagist requires tags and no specific artifacts.

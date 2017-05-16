@@ -39,7 +39,7 @@ class SqwebController extends Controller
             if (isset($_COOKIE['sqw_z']) && null !== $this->config['id_site']) {
                 $curl = curl_init();
                 curl_setopt_array($curl, array(
-                    CURLOPT_URL => 'https://api.sqweb.com/token/check',
+                    CURLOPT_URL => 'https://api.multipass.net/token/check',
                     CURLOPT_RETURNTRANSFER => true,
                     CURLOPT_CONNECTTIMEOUT_MS => 1000,
                     CURLOPT_TIMEOUT_MS => 1000,
