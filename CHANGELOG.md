@@ -1,10 +1,17 @@
 # Changelog
 
-## v1.2.0 - 2016-11-18
+## v1.2.1 - 2017-05-16
 
-* Added 'tiny' and 'large' options to display the Multipass button.
-* Added the necessary variable: SQW_SITENAME to our configuration file.
+* Fixed `v1.2.0` release date.
+* Fixed missing items from changelog.
+
+## v1.2.0 - 2017-05-16
+
+* Added `tiny` and `large` options to display the Multipass button.
+* Added the necessary variable: `SQW_SITENAME` to our configuration file.
 * Normalized variables names with our other SDK.
+* Updated API and CDN endpoints.
+* Added `ADBLOCK_MODAL` configuration option.
 
 ## v1.1.3 - 2016-11-16
 
