@@ -26,9 +26,6 @@ script:
   - vendor/bin/phpcs --standard=PSR2 src/ --extensions=php
   - vendor/bin/phpcpd src/
 
-after_success:
-  - wget https://github.com/SQweb-team/SQweb-SDK-Laravel/archive/v1.1.3.zip
-
 notifications:
   slack:
     on_success: never
@@ -42,9 +39,10 @@ deploy:
   provider: releases
   api_key:
     secure: rWWw/0Zlh3QsUVs+CpLZ/r8uxe1FT6fUtFLrW+F1lBeOj3603Rg1UWn/0QvZrpvYv6Qv1DpuECSlPv6HgamPoNsnU/p8Q6SVaCECgsegERXsUqkaEzQm87Ru2P2VDP7gLA+VzzBO4N3+bjsgAyl0JMSy743aIernCu3Z6iXp8tH3vnDIsVHz27x3h83lfh1uUA4auqyoCmPVo2sTyHWRMDV6stLOBTH4xxsTQWhVwadsJ3U7wxx/BpZ4Wz75yBGUFhc2Lx1+J1wuMhBA6iEotXIYy2vAJfkTNYYovovrfLc1+WUNXzI/sgOOTG5vPZCnbkjoQ1qjQFJ44yawNRq0wINFlfpnW8Qw9pXYzsxcbTOPpTQPktx6n9YJKgpErFYEsy8isC5p/GCpKGFO0i9vIaLrUEvSw2sioblm+W30Xn+ZhC2mBSfzx5b7a7atMnzqeWU1uAlwOIuWdH6uWZWkUfy9uVAAwS+NFxQhOz9RraDvNcdm19spz5aY58rdzSO35WiAOustq9P+9VjRPYnsNll93yTEfQ6Bzj0HgUx6T9+88yqZOMsk3mdHnbeSTcac7EXpDJN1/DBQxRKfJDoPIcI962b7R1Zk9yWJFBnA+htv4y9AHSIu/fZ5at9bo11+OFQ3VlN84rwEZmKAnMeNcIcj9X8Vc9C45sOOlsmvS3g=
-  file: $TRAVIS_TAG.zip
+  file: CHANGELOG.md
   on:
     repo: SQweb-team/SQweb-SDK-Laravel
+    tags: true
     php: 7.0
 
 after_deploy:
