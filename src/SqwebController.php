@@ -69,7 +69,7 @@ class SqwebController extends Controller
         echo '<script>
             var _sqw = {
                 id_site: '. $this->config['id_site'] .',
-                    sitename: ' . $this->config['sitename'] .',
+                    sitename: "' . $this->config['sitename'] .'",
                     debug: '. $this->config['debug'] .',
                     adblock_modal: '. $this->config['adblock_modal'] .',
                     targeting: '. $this->config['targeting'] .',
