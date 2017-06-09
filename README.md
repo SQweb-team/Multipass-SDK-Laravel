@@ -87,6 +87,23 @@ We have differents sizes for the button, to use them, pass a string to the funct
 
 ### 4. More functions
 
+#### Display a support div for your users
+```php
+/**
+ * Display a support block.
+ */
+
+function supportBlock() {   }
+``
+
+For instance:
+
+```php
+{!! $sqweb->supportBlock !!}
+```
+
+Will display the block.
+
 #### Display only a part of your content to non premium users
 
 ```php
