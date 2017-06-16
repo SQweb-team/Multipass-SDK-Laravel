@@ -104,7 +104,7 @@ class SqwebController extends Controller
                 break;
 
             default:
-                $href = 'https://www.multipass.net/en premium-partners-website-without-ads-nor-restriction'
+                $href = 'https://www.multipass.net/en premium-partners-website-without-ads-nor-restriction';
                 $wording = array(
                     'warning'       => 'The rest of this article is restricted.',
                     'already_sub'   => 'Already a member? ',
