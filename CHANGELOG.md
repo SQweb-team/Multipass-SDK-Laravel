@@ -3,6 +3,7 @@
 ## v1.2.2
 
 * Implemented a function to display a support block.
+* Implemented a function to display a locking block.
 
 ## v1.2.1 - 2017-05-16
 
