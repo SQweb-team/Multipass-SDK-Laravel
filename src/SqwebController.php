@@ -122,7 +122,7 @@ class SqwebController extends Controller
                     <div class="footer__mp__button_header_title">' . $wording['warning'] . '</div>
                     <div onclick="sqw.modal_first()" class="footer__mp__button_signin">'
                     . $wording['already_sub']
-                    . '<span class="footer__mp__button_login footer__mp__button_strong">'
+                    . '<span onclick="sqw.modal_first()" class="footer__mp__button_login footer__mp__button_strong">'
                     . $wording['login']
                     . '</span></div>
                 </div>

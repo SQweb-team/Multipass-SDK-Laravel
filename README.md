@@ -88,6 +88,7 @@ We have differents sizes for the button, to use them, pass a string to the funct
 ### 4. More functions
 
 #### Display a support div for your users
+
 ```php
 /**
  * Display a support block.
