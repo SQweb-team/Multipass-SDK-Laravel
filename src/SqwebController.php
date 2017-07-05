@@ -119,7 +119,7 @@ class SqwebController extends Controller
                          sites, et ainsi financer le travail des créateurs et journalistes que vous aimez.',
                     'support'       => 'Soutenez nous avec'
                 ];
-            break;
+                break;
 
             default:
                 $wording = [
@@ -133,7 +133,7 @@ class SqwebController extends Controller
                          websites: you can finance the work of journalists and content creators you love.',
                     'support'       => 'Support us with'
                 ];
-            break;
+                break;
         }
 
         return '
