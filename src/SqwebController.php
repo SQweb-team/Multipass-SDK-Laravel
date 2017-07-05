@@ -99,7 +99,7 @@ class SqwebController extends Controller
      */
     public function supportBlock()
     {
-        $html = $this->returnSupportBlock('support');
+        $html = $this->returnSupportBlock();
 
         echo $html;
     }
@@ -108,7 +108,7 @@ class SqwebController extends Controller
     {
         switch ($this->config['lang']) {
             case 'fr':
-            case 'fr_fr':
+            case 'fr_fr': //This is to handle long and short localizations
                 $wording = [
                     'title'         => 'L\'article est terminé ...',
                     'sentence_1'    => '... mais nous avons besoin que vous lisiez ceci: nous avons de plus en plus de lecteurs chaque jour,
@@ -119,6 +119,7 @@ class SqwebController extends Controller
                                      et ainsi financer le travail des créateurs et journalistes que vous aimez.',
                     'support'       => 'Soutenez nous avec'
                 ];
+            break;
 
             default:
                 $wording = [
@@ -131,6 +132,7 @@ class SqwebController extends Controller
                                      you can finance the work of journalists and content creators you love.',
                     'support'       => 'Support us with'
                 ];
+            break;
         }
 
         return '
