@@ -87,7 +87,7 @@ We have differents sizes for the button, to use them, pass a string to the funct
 
 ### 4. More functions
 
-#### Display a support div for your users
+#### Display a "Support us" message for your users
 
 ```php
 /**
@@ -112,7 +112,7 @@ Will display the block.
  * Display a locking block.
  */
 
-function supportBlock() {   }
+function lockingBlock() {   }
 ``
 
 For instance:

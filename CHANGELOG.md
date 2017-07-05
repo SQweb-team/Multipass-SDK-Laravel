@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.2.3
+
+* Replaced the support block with a "Support us" message
+
 ## v1.2.2
 
 * Implemented a function to display a support block.
