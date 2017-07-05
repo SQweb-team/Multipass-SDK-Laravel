@@ -2,7 +2,7 @@
 
 ## v1.2.3
 
-* Replaced the support block with a "Support us" message
+* Replaced the support block with a "Support us" message.
 
 ## v1.2.2
 
