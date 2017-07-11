@@ -7,7 +7,7 @@
 
 namespace Sqweb\Laravel_sdk;
 
-define('SDK', 'SQweb/SDK-Laravel 1.2.3');
+define('SDK', 'SQweb/SDK-Laravel 1.2.4');
 
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -137,16 +137,16 @@ class SqwebController extends Controller
         }
 
         return '
-            <div class="article-footer-container">
-                <div class="article-footer-body">
-                    <div class="article-footer-body-title">' . $wording['title'] . '</div>
-                    <div class="article-footer-body-content1">' . $wording['sentence_1'] .'</div>
-                    <div class="article-footer-body-content2">' . $wording['sentence_2'] . '</div>
-                    <div class="article-footer-body-content3">' . $wording['sentence_3'] . '</div>
+            <div class="sqw-article-footer-container">
+                <div class="sqw-article-footer-body">
+                    <div class="sqw-article-footer-body-title">' . $wording['title'] . '</div>
+                    <div class="sqw-article-footer-body-content1">' . $wording['sentence_1'] .'</div>
+                    <div class="sqw-article-footer-body-content2">' . $wording['sentence_2'] . '</div>
+                    <div class="sqw-article-footer-body-content3">' . $wording['sentence_3'] . '</div>
                 </div>
-                <div onclick="sqw.modal_first()" class="article-footer-footer">
-                    <div class="article-footer-footer-text">' . $wording['support'] . '</div>
-                    <div class="article-footer-footer-logo-container"></div>
+                <div onclick="sqw.modal_first()" class="sqw-article-footer-footer">
+                    <div class="sqw-article-footer-footer-text">' . $wording['support'] . '</div>
+                    <div class="sqw-article-footer-footer-logo-container"></div>
                 </div>
             </div>
         ';
