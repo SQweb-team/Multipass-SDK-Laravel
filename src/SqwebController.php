@@ -134,7 +134,8 @@ class SqwebController extends Controller
             default:
                 $wording = [
                     'title'         => 'Continue reading...',
-                    'sentence_1'    => '... we need you to hear this: More people are reading our website than ever but advertising revenues across the media are falling fast.',
+                    'sentence_1'    => '... we need you to hear this: More people are reading our website than ever but
+                         advertising revenues across the media are falling fast.',
                     'sentence_2'    => ' We want to keep our content as open as we can. We are independent,
                          and our quality work takes a lot of time, money and hard work to produce. ',
                     'sentence_3'    => 'You can support us with Multipass which enables you to pay for a bundle of
@@ -266,7 +267,7 @@ class SqwebController extends Controller
             echo '<div class="sqweb-button multipass-slim"></div>';
         } elseif ($size === 'large') {
             echo '<div class="sqweb-button multipass-large"></div>';
-        } elseif ($size === 'support'){
+        } elseif ($size === 'support') {
             echo '<div class="sqweb-support"></div>';
         } else { // multipass-regular
             echo '<div class="sqweb-button"></div>';
