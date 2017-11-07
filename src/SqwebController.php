@@ -7,7 +7,7 @@
 
 namespace Sqweb\Laravel_sdk;
 
-define('SDK', 'SQweb/SDK-Laravel 1.2.4');
+define('SDK', 'SQweb/SDK-Laravel 1.2.5');
 
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -68,7 +68,7 @@ class SqwebController extends Controller
 
         echo '<script>
             var _sqw = {
-                id_site: '. $this->config['id_site'] .',
+                    id_site: '. $this->config['id_site'] .',
                     sitename: "' . $this->config['sitename'] .'",
                     debug: '. $this->config['debug'] .',
                     adblock_modal: '. $this->config['adblock_modal'] .',
@@ -76,7 +76,17 @@ class SqwebController extends Controller
                     beacon: '. $this->config['beacon'] .',
                     dwide: '. $this->config['dwide'] .',
                     i18n: "'. $this->config['lang'] .'",
-                    msg: "'. $this->config['message'] .'"};
+                    msg: "'. $this->config['message'] .'",
+                    login: "' . $this->config['login'] . '",
+                    connected: "' . $this->config['connected'] . '",
+                    support: "' . $this->config['support'] . '",
+                    btn_noads: "' . $this->config['btn_noads'] . '",
+                    login_tiny: "' . $this->config['login_tiny'] . '",
+                    connected_s: "' . $this->config['connected_s'] . '",
+                    connected_support: "' . $this->config['connected_support'] . '",
+                    btn_unlimited: "' . $this->config['btn_unlimited'] . '",
+                    connected_tiny: "' . $this->config['connected_tiny'] . '"
+                };
                 var script = document.createElement("script");
                 script.type = "text/javascript";
                 script.src = "https://cdn.multipass.net/multipass.js";
@@ -125,8 +135,7 @@ class SqwebController extends Controller
                 $wording = [
                     'title'         => 'Continue reading...',
                     'sentence_1'    => '... we need you to hear this: More people are reading our website than ever but
-                         advertising revenues across the media are falling fast. We need you to hear this: More people
-                         are reading our website than ever but advertising revenues across the media are falling fast.',
+                         advertising revenues across the media are falling fast.',
                     'sentence_2'    => ' We want to keep our content as open as we can. We are independent,
                          and our quality work takes a lot of time, money and hard work to produce. ',
                     'sentence_3'    => 'You can support us with Multipass which enables you to pay for a bundle of
@@ -258,6 +267,8 @@ class SqwebController extends Controller
             echo '<div class="sqweb-button multipass-slim"></div>';
         } elseif ($size === 'large') {
             echo '<div class="sqweb-button multipass-large"></div>';
+        } elseif ($size === 'support') {
+            echo '<div class="sqweb-support"></div>';
         } else { // multipass-regular
             echo '<div class="sqweb-button"></div>';
         }

@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.2.5
+
+* Now allow text customization of our buttons
+* Added a support us login button
+* Fixed a typo in the support us footer button
+
 ## v1.2.4
 
 * Prefixed css classes.
