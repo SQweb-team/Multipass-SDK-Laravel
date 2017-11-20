@@ -1,20 +1,24 @@
 # Changelog
 
-## v1.2.5
+## v1.2.6 - 2017-11-07
+
+* Now passing the click event when opening the iframe.
+
+## v1.2.5 - 2017-11-07
 
 * Now allow text customization of our buttons
 * Added a support us login button
 * Fixed a typo in the support us footer button
 
-## v1.2.4
+## v1.2.4 - 2017-08-02
 
 * Prefixed css classes.
 
-## v1.2.3
+## v1.2.3 - 2017-07-05
 
 * Replaced the support block with a "Support us" message.
 
-## v1.2.2
+## v1.2.2 - 2017-06-19
 
 * Implemented a function to display a support block.
 * Implemented a function to display a locking block.

@@ -7,7 +7,7 @@
 
 namespace Sqweb\Laravel_sdk;
 
-define('SDK', 'SQweb/SDK-Laravel 1.2.5');
+define('SDK', 'SQweb/SDK-Laravel 1.2.6');
 
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -153,7 +153,7 @@ class SqwebController extends Controller
                     <div class="sqw-article-footer-body-content2">' . $wording['sentence_2'] . '</div>
                     <div class="sqw-article-footer-body-content3">' . $wording['sentence_3'] . '</div>
                 </div>
-                <div onclick="sqw.modal_first()" class="sqw-article-footer-footer">
+                <div onclick="sqw.modal_first(event)" class="sqw-article-footer-footer">
                     <div class="sqw-article-footer-footer-text">' . $wording['support'] . '</div>
                     <div class="sqw-article-footer-footer-logo-container"></div>
                 </div>
@@ -169,16 +169,16 @@ class SqwebController extends Controller
         $wording = $this->selectText($type);
 
         return '
-            <div class="footer__mp__normalize footer__mp__button_container">
+            <div class="footer__mp__normalize footer__mp__button_container sqw-paywall-button-container">
                 <div class="footer__mp__button_header">
                     <div class="footer__mp__button_header_title">' . $wording['warning'] . '</div>
-                    <div onclick="sqw.modal_first()" class="footer__mp__button_signin">'
+                    <div onclick="sqw.modal_first(event)" class="footer__mp__button_signin">'
                     . $wording['already_sub']
-                    . '<span onclick="sqw.modal_first()" class="footer__mp__button_login footer__mp__button_strong">'
+                    . '<span class="footer__mp__button_login footer__mp__button_strong">'
                     . $wording['login']
                     . '</span></div>
                 </div>
-                <div onclick="sqw.modal_first()" class="footer__mp__normalize footer__mp__button_cta">
+                <div onclick="sqw.modal_first(event)" class="footer__mp__normalize footer__mp__button_cta">
                     <a href="#" class="footer__mp__cta_fresh">' . $wording['unlock'] . '</a>
                 </div>
                 <div class="footer__mp__normalize footer__mp__button_footer">
