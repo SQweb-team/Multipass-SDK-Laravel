@@ -77,20 +77,23 @@ class SqwebController extends Controller
             'dwide' => $this->config['dwide'],
             'locale' => $this->config['lang'],
             'msg' => $this->config['message'],
-            'login' => $this->config['login'],
-            'connected' => $this->config['connected'],
-            'support' => $this->config['support'],
-            'btn_noads' => $this->config['btn_noads'],
-            'login_tiny' => $this->config['login_tiny'],
-            'connected_s' => $this->config['connected_s'],
-            'connected_support' => $this->config['connected_support'],
-            'btn_unlimited' => $this->config['btn_unlimited'],
-            'connected_tiny' => $this->config['connected_tiny'],
             'autologin' => $this->config['autologin'],
+            // User's custom strings for button customization
+            'user_strings' => array(
+                'login' => $this->config['login'],
+                'login_tiny' => $this->config['login_tiny'],
+                'connected' => $this->config['connected'],
+                'connected_tiny' => $this->config['connected_tiny'],
+                'connected_s' => $this->config['connected_s'],
+                'connected_support' => $this->config['connected_support'],
+                'btn_unlimited' => $this->config['btn_unlimited'],
+                'btn_noads' => $this->config['btn_noads'],
+                'support' => $this->config['support'],
+            ),
         ));
 
         $output = '<script src="https://cdn.multipass.net/multipass.min.js" type="text/javascript"></script>' . PHP_EOL;
-        $output .= "<script>var _mltpss = new Multipass.default($settings);</script>;";
+        $output .= "<script>var mltpss = new Multipass.default($settings);</script>";
 
         echo $output;
     }
