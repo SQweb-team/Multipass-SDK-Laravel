@@ -10,16 +10,18 @@ return [
     'beacon'            => env('SQW_BEACON', 0),
     'debug'             => env('SQW_DEBUG', 0),
     'dwide'             => env('SQW_DWIDE', 1),
-    'lang'              => env('SQW_LANG', 'en'),
+
+    /* Plugin locale, supported: en_US, en_GB, fr_FR */
+    'lang'              => env('SQW_LANG', 'en_US'),
 
     /* Buttons customization (see README.md) */
-    'login'             => env('SQW_LOGIN', ''),
-    'connected'         => env('SQW_CONNECTED', ''),
-    'support'           => env('SQW_SUPPORT', ''),
-    'btn_noads'         => env('SQW_BTN_NOADS', ''),
-    'login_tiny'        => env('SQW_LOGIN_TINY', ''),
-    'connected_s'       => env('SQW_CONNECTED_S', ''),
-    'btn_unlimited'     => env('SQW_BTN_UNLIMITED', ''),
-    'connected_tiny'    => env('SQW_CONNECTED_TINY', ''),
-    'connected_support' => env('SQW_CONNECTED_SUPPORT', ''),
+    'login'             => '',
+    'connected'         => '',
+    'support'           => '',
+    'btn_noads'         => '',
+    'login_tiny'        => '',
+    'connected_s'       => '',
+    'btn_unlimited'     => '',
+    'connected_tiny'    => '',
+    'connected_support' => '',
 ];
