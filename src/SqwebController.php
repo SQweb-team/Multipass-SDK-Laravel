@@ -122,46 +122,44 @@ class SqwebController extends Controller
     {
         switch ($this->config['lang']) {
             case 'fr_FR': //This is to handle long and short localizations
-            $wording = [
-                'title'         => 'L\'article est terminé ...',
-                'sentence_1'    => '... mais nous avons besoin que vous lisiez ceci: nous avons de plus en plus
-                de lecteurs chaque jour, mais de moins en moins de revenus publicitaires.',
-                'sentence_2'    => 'Nous souhaitons laisser notre contenu accessible à tous. Nous sommes
-                indépendants et notre travail de qualité prend beaucoup de temps, d\'argent et de dévotion',
-                'sentence_3'    => 'Vous pouvez nous soutenir avec Multipass qui permet de payer pour un bouquet de
-                sites, et ainsi financer le travail des créateurs et journalistes que vous aimez.',
-                'support'       => 'Soutenez nous avec'
-            ];
-            break;
+                $wording = [
+                    'title'         => 'L\'article est terminé ...',
+                    'sentence_1'    => '... mais nous avons besoin que vous lisiez ceci: nous avons de plus en plus
+                    de lecteurs chaque jour, mais de moins en moins de revenus publicitaires.',
+                    'sentence_2'    => 'Nous souhaitons laisser notre contenu accessible à tous. Nous sommes
+                    indépendants et notre travail de qualité prend beaucoup de temps, d\'argent et de dévotion',
+                    'sentence_3'    => 'Vous pouvez nous soutenir avec Multipass qui permet de payer pour un bouquet de
+                    sites, et ainsi financer le travail des créateurs et journalistes que vous aimez.',
+                    'support'       => 'Soutenez nous avec'
+                ];
+                break;
 
             default:
-            $wording = [
-                'title'         => 'Continue reading...',
-                'sentence_1'    => '... we need you to hear this: More people are reading our website than ever but
-                advertising revenues across the media are falling fast.',
-                'sentence_2'    => ' We want to keep our content as open as we can. We are independent,
-                and our quality work takes a lot of time, money and hard work to produce. ',
-                'sentence_3'    => 'You can support us with Multipass which enables you to pay for a bundle of
-                websites: you can finance the work of journalists and content creators you love.',
-                'support'       => 'Support us with'
-            ];
-            break;
+                $wording = [
+                    'title'         => 'Continue reading...',
+                    'sentence_1'    => '... we need you to hear this: More people are reading our website than ever but
+                    advertising revenues across the media are falling fast.',
+                    'sentence_2'    => ' We want to keep our content as open as we can. We are independent,
+                    and our quality work takes a lot of time, money and hard work to produce. ',
+                    'sentence_3'    => 'You can support us with Multipass which enables you to pay for a bundle of
+                    websites: you can finance the work of journalists and content creators you love.',
+                    'support'       => 'Support us with'
+                ];
+                break;
         }
 
-        return '
-        <div class="sqw-article-footer-container">
-        <div class="sqw-article-footer-body">
-        <div class="sqw-article-footer-body-title">' . $wording['title'] . '</div>
-        <div class="sqw-article-footer-body-content1">' . $wording['sentence_1'] .'</div>
-        <div class="sqw-article-footer-body-content2">' . $wording['sentence_2'] . '</div>
-        <div class="sqw-article-footer-body-content3">' . $wording['sentence_3'] . '</div>
-        </div>
-        <div onclick="sqw.modal_first(event)" class="sqw-article-footer-footer">
-        <div class="sqw-article-footer-footer-text">' . $wording['support'] . '</div>
-        <div class="sqw-article-footer-footer-logo-container"></div>
-        </div>
-        </div>
-        ';
+        return '<div class="sqw-article-footer-container">
+            <div class="sqw-article-footer-body">
+            <div class="sqw-article-footer-body-title">' . $wording['title'] . '</div>
+            <div class="sqw-article-footer-body-content1">' . $wording['sentence_1'] .'</div>
+            <div class="sqw-article-footer-body-content2">' . $wording['sentence_2'] . '</div>
+            <div class="sqw-article-footer-body-content3">' . $wording['sentence_3'] . '</div>
+            </div>
+            <div onclick="sqw.modal_first(event)" class="sqw-article-footer-footer">
+            <div class="sqw-article-footer-footer-text">' . $wording['support'] . '</div>
+            <div class="sqw-article-footer-footer-logo-container"></div>
+            </div>
+            </div>';
     }
 
     /*
@@ -201,57 +199,57 @@ class SqwebController extends Controller
             switch ($this->config['lang']) {
                 case 'fr':
                 case 'fr_fr':
-                $wording = array(
-                    'warning'       => 'Surfez sans publicité.',
-                    'already_sub'   => 'Déjà abonné ? ',
-                    'login'         => 'Connexion',
-                    'unlock'        => 'Soutenez notre site grâce à ',
-                    'desc'          => 'L\'abonnement multi-sites, sans engagement.',
-                    'href'          => 'https://www.multipass.net/fr/sites-partenaires-premium-sans-pub-ni-limites',
-                    'discover'      => 'Découvrir les partenaires'
-                );
-                break;
+                    $wording = array(
+                        'warning'       => 'Surfez sans publicité.',
+                        'already_sub'   => 'Déjà abonné ? ',
+                        'login'         => 'Connexion',
+                        'unlock'        => 'Soutenez notre site grâce à ',
+                        'desc'          => 'L\'abonnement multi-sites, sans engagement.',
+                        'href'          => 'https://www.multipass.net/fr/sites-partenaires-premium-sans-pub-ni-limites',
+                        'discover'      => 'Découvrir les partenaires'
+                    );
+                    break;
 
                 default:
-                $href = 'https://www.multipass.net/en/premium-partners-website-without-ads-nor-restriction';
-                $wording = array(
-                    'warning'       => 'Surf our website ad free',
-                    'already_sub'   => 'Already a member? ',
-                    'login'         => 'Sign in',
-                    'unlock'        => 'Support our website, get your',
-                    'desc'          => 'The multisite subscription, with no commitment.',
-                    'href'          => $href,
-                    'discover'      => 'Discover all the partners'
-                );
-                break;
+                    $href = 'https://www.multipass.net/en/premium-partners-website-without-ads-nor-restriction';
+                    $wording = array(
+                        'warning'       => 'Surf our website ad free',
+                        'already_sub'   => 'Already a member? ',
+                        'login'         => 'Sign in',
+                        'unlock'        => 'Support our website, get your',
+                        'desc'          => 'The multisite subscription, with no commitment.',
+                        'href'          => $href,
+                        'discover'      => 'Discover all the partners'
+                    );
+                    break;
             }
         } elseif ($type == 'locking') {
             switch ($this->config['lang']) {
                 case 'fr':
                 case 'fr_fr':
-                $wording = array(
-                    'warning'       => 'Cet article est reservé.',
-                    'already_sub'   => 'Déjà abonné ? ',
-                    'login'         => 'Connexion',
-                    'unlock'        => 'Débloquez ce contenu avec',
-                    'desc'          => 'L\'abonnement multi-sites, sans engagement.',
-                    'href'          => 'https://www.multipass.net/fr/sites-partenaires-premium-sans-pub-ni-limites',
-                    'discover'      => 'Découvrir les partenaires'
-                );
-                break;
+                    $wording = array(
+                        'warning'       => 'Cet article est reservé.',
+                        'already_sub'   => 'Déjà abonné ? ',
+                        'login'         => 'Connexion',
+                        'unlock'        => 'Débloquez ce contenu avec',
+                        'desc'          => 'L\'abonnement multi-sites, sans engagement.',
+                        'href'          => 'https://www.multipass.net/fr/sites-partenaires-premium-sans-pub-ni-limites',
+                        'discover'      => 'Découvrir les partenaires'
+                    );
+                    break;
 
                 default:
-                $href = 'https://www.multipass.net/en/premium-partners-website-without-ads-nor-restriction';
-                $wording = array(
-                    'warning'       => 'The rest of this article is restricted.',
-                    'already_sub'   => 'Already a member? ',
-                    'login'         => 'Sign in',
-                    'unlock'        => 'Unlock this content, get your ',
-                    'desc'          => 'The multisite subscription, with no commitment.',
-                    'href'          => $href,
-                    'discover'      => 'Discover all the partners'
-                );
-                break;
+                    $href = 'https://www.multipass.net/en/premium-partners-website-without-ads-nor-restriction';
+                    $wording = array(
+                        'warning'       => 'The rest of this article is restricted.',
+                        'already_sub'   => 'Already a member? ',
+                        'login'         => 'Sign in',
+                        'unlock'        => 'Unlock this content, get your ',
+                        'desc'          => 'The multisite subscription, with no commitment.',
+                        'href'          => $href,
+                        'discover'      => 'Discover all the partners'
+                    );
+                    break;
             }
         }
         return $wording;

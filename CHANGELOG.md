@@ -1,5 +1,10 @@
 # Changelog
 
+## v1.3.0 - 2018-01-09
+
+* Added autologin feature.
+* Reworked script() method.
+
 ## v1.2.6 - 2017-11-07
 
 * Now passing the click event when opening the iframe.
