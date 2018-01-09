@@ -92,7 +92,7 @@ class SqwebController extends Controller
             ),
         ));
 
-        $output = '<script src="https://cdn.multipass.net/multipass.min.js" type="text/javascript"></script>' . PHP_EOL;
+        $output = '<script src="https://cdn.multipass.net/mltpss.min.js" type="text/javascript"></script>' . PHP_EOL;
         $output .= "<script>var mltpss = new Multipass.default($settings);</script>";
 
         echo $output;
