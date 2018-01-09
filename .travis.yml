@@ -24,7 +24,7 @@ before_script:
 script:
   - vendor/bin/parallel-lint src tests config
   - vendor/bin/phpcs --standard=PSR2 src/ --extensions=php
-  - vendor/bin/phpcpd src/
+  # - vendor/bin/phpcpd src/
 
 notifications:
   slack:
