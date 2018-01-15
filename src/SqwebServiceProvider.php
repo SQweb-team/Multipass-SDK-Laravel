@@ -1,10 +1,7 @@
 <?php
 /*
- * SQweb PHP SDK
- * @author Pierre Lavaux <pierre@sqweb.com>
- * @author Bastien Botella <bastien@sqweb.com>
- * @author Mathieu Darrigade <mathieu@sqweb.com>
- * @link https://github.com/SQweb-team/SQweb-SDK-Laravel
+ * Multipass Laravel SDK
+ * @link https://github.com/SQweb-team/Multipass-SDK-Laravel
  * @license http://opensource.org/licenses/GPL-3.0
  */
 
