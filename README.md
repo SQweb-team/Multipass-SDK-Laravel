@@ -20,7 +20,7 @@ If you're using WordPress, we've made it easy for you. Download the SQweb plugin
 
 ### Using Composer
 
-1. In your project root, execute `composer require sqweb/laravel_sdk`;
+1. In your project root, execute `composer require mltpss/laravel-sdk`;
 
 2. Now, go to config/app.php and add this line to your providers array:
 
@@ -252,7 +252,7 @@ If you discover a security vulnerability within SQweb or this plugin, please e-m
 
 ## License
 
-Copyright (C) 2016 – SQweb
+Copyright (C) 2018 – SQweb
 
 This program is free software ; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation ; either version 3 of the License, or any later version.
 
