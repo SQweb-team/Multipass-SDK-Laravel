@@ -1,7 +1,7 @@
 {
-    "name": "sqweb/laravel_sdk",
-    "description": "SQweb package for Laravel users",
-    "keywords": ["sqweb", "laravel", "sdk"],
+    "name": "mltpss/laravel-sdk",
+    "description": "Multipass package for Laravel users",
+    "keywords": ["sqweb", "multipass", "laravel", "sdk"],
     "authors": [
         {
             "name": "Mathieu Darrigade",
