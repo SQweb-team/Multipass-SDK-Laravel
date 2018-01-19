@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.3.1 - 2018-01-15
+
+* Renamed the package from SQweb to Multipass.
+
 ## v1.3.0 - 2018-01-09
 
 * Added autologin feature.

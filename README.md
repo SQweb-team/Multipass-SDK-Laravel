@@ -1,4 +1,4 @@
-# SQweb Laravel Package
+# Multipass Laravel Package
 
 [![Build Status](https://travis-ci.org/SQweb-team/SQweb-SDK-Laravel.svg?branch=master)](https://travis-ci.org/SQweb-team/SQweb-SDK-Laravel)
 [![Latest Stable Version](https://poser.pugx.org/sqweb/laravel_sdk/v/stable)](https://packagist.org/packages/sqweb/laravel_sdk)

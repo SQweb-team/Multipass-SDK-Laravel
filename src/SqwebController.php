@@ -1,6 +1,6 @@
 <?php
 /*
- * Multipass Laravel SDK v1.3.0
+ * Multipass Laravel SDK v1.3.1
  * @author Pierre Lavaux <pierre@multipass.net>
  * @author Mathieu Darrigade <mathieu@multipass.net>
  * @author Nicolas Verdonck <nicolas@sqweb.com>
@@ -12,7 +12,7 @@
 
 namespace Sqweb\Laravel_sdk;
 
-define('SDK', 'SQweb/SDK-Laravel 1.3.0');
+define('SDK', 'SQweb/SDK-Laravel 1.3.1');
 
 use Carbon\Carbon;
 use Illuminate\Http\Request;
