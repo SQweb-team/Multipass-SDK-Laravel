@@ -5,12 +5,12 @@
  * @license http://opensource.org/licenses/GPL-3.0
  */
 
-namespace Sqweb\Laravel_sdk;
+namespace Multipass\LaravelSDK;
 
 use Illuminate\Support\ServiceProvider;
-use Sqweb\Laravel_sdk\SqwebController;
+use Multipass\LaravelSDK\MultipassController;
 
-class SqwebServiceProvider extends ServiceProvider
+class MultipassServiceProvider extends ServiceProvider
 {
     /**
      * Indicates if loading of the provider is deferred.
@@ -18,6 +18,7 @@ class SqwebServiceProvider extends ServiceProvider
      * @var bool
      */
     protected $defer = false;
+
     /**
      * Perform post-registration booting of services.
      *
@@ -25,19 +26,18 @@ class SqwebServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->publishes([__DIR__ . '/../config' => config_path()], 'sqweb.php');
-        $sqweb = new SqwebController();
-        view()->share('sqweb', $sqweb);
+        $this->publishes([__DIR__ . '/../config' => config_path()], 'multipass-config');
+        view()->share('mltpss', new MultipassController);
     }
 
-     /**
+    /**
      * Register any package services.
      *
      * @return void
      */
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__ . '/../config/sqweb.php', 'sqweb_default_config');
-        $this->app->make('Sqweb\Laravel_sdk\SqwebController');
+        $this->mergeConfigFrom(__DIR__ . '/../config/multipass.php', 'multipass-default');
+        // $this->app->make('Multipass\LaravelSDK\MultipassController'); What is this for?
     }
 }

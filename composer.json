@@ -23,13 +23,21 @@
         }
     ],
     "minimum-stability": "dev",
+    "repositories": [{
+        "type": "path",
+        "url": "/Users/mb/_works/mltpss-lib",
+        "options": {
+            "symlink": true
+        }
+    }],
     "require": {
         "php": ">= 5.5.9",
-        "ext-curl": "*"
+        "ext-curl": "*",
+        "mltpss/lib": "^1.0@dev"
     },
     "autoload": {
         "psr-4": {
-            "Sqweb\\Laravel_sdk\\": "src/"
+            "Multipass\\LaravelSDK\\": "src/"
         }
     },
     "require-dev": {

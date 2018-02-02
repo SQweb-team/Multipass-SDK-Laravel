@@ -25,7 +25,7 @@ If you're using WordPress, we've made it easy for you. Download the SQweb plugin
 2. Now, go to config/app.php and add this line to your providers array:
 
     ```php
-    Sqweb\Laravel_sdk\SqwebServiceProvider::class,
+    Multipass\LaravelSDK\MultipassServiceProvider::class,
     ```
 
 3. Type `php artisan vendor:publish` at the root of your project to create the configuration file.
@@ -112,7 +112,7 @@ Will show  `Hello world` instead of `Premium with Multipass` on the regular butt
  */
 
 function supportBlock() {   }
-``
+```
 
 For instance:
 
@@ -130,7 +130,7 @@ Will display the block.
  */
 
 function lockingBlock() {   }
-``
+```
 
 For instance:
 
