@@ -11,7 +11,7 @@ return [
     'debug'             => env('SQW_DEBUG', 0),
     'dwide'             => env('SQW_DWIDE', 1),
     'autologin'         => env('SQW_AUTOLOGIN', 1),
-    'tunnel'            => env('SQW_TUNNEL', 'support');
+    'tunnel'            => env('SQW_TUNNEL', 'support'),
 
     /* Plugin locale, supported: en_US, en_GB, fr_FR */
     'lang'              => env('SQW_LANG', 'en_US'),
