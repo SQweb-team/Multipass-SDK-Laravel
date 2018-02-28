@@ -1,6 +1,6 @@
 <?php
 /*
- * Multipass Laravel SDK v1.3.1
+ * Multipass Laravel SDK v1.3.2
  * @author Pierre Lavaux <pierre@multipass.net>
  * @author Mathieu Darrigade <mathieu@multipass.net>
  * @author Nicolas Verdonck <nicolas@sqweb.com>
@@ -12,7 +12,7 @@
 
 namespace Sqweb\Laravel_sdk;
 
-define('SDK', 'SQweb/SDK-Laravel 1.3.1');
+define('SDK', 'SQweb/SDK-Laravel 1.3.2');
 
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -83,6 +83,7 @@ class SqwebController extends Controller
             'locale' => $this->config['lang'],
             'msg' => $this->config['message'],
             'autologin' => $this->config['autologin'],
+            'tunnel' => $this->config['tunnel'],
             // User's custom strings for button customization
             'user_strings' => array(
                 'login' => $this->config['login'],
