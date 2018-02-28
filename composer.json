@@ -2,7 +2,7 @@
     "name": "mltpss/laravel-sdk",
     "description": "Multipass package for Laravel users",
     "keywords": ["sqweb", "multipass", "laravel", "sdk"],
-    "license": "GPL v3",
+    "license": "GPL-3.0-only",
     "authors": [
         {
             "name": "Mathieu Darrigade",
