@@ -1,6 +1,6 @@
 <?php
 /*
- * Multipass Laravel SDK v1.3.2
+ * Multipass Laravel SDK v1.3.3
  * @author Pierre Lavaux <pierre@multipass.net>
  * @author Mathieu Darrigade <mathieu@multipass.net>
  * @author Nicolas Verdonck <nicolas@sqweb.com>
@@ -12,7 +12,7 @@
 
 namespace Sqweb\Laravel_sdk;
 
-define('SDK', 'SQweb/SDK-Laravel 1.3.2');
+define('SDK', 'SQweb/SDK-Laravel 1.3.3');
 
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -154,7 +154,7 @@ class SqwebController extends Controller
                 break;
         }
 
-        return '<div class="sqw-article-footer-container">
+        return '<div class="sqw-article-footer-container sqw-support-us-footer">
             <div class="sqw-article-footer-body">
             <div class="sqw-article-footer-body-title">' . $wording['title'] . '</div>
             <div class="sqw-article-footer-body-content1">' . $wording['sentence_1'] .'</div>

@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.3.3 - 2018-03-05
+
+* Improved the way we log support button actions
+
 ## v1.3.2 - 2018-02-28
 
 * Added a tunnel option.
