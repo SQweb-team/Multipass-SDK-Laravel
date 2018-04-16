@@ -1,6 +1,6 @@
 <?php
 /*
- * Multipass Laravel SDK v1.3.3
+ * Multipass Laravel SDK v1.3.4
  * @author Pierre Lavaux <pierre@multipass.net>
  * @author Mathieu Darrigade <mathieu@multipass.net>
  * @author Nicolas Verdonck <nicolas@sqweb.com>
@@ -12,7 +12,7 @@
 
 namespace Sqweb\Laravel_sdk;
 
-define('SDK', 'SQweb/SDK-Laravel 1.3.3');
+define('SDK', 'SQweb/SDK-Laravel 1.3.4');
 
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -68,17 +68,10 @@ class SqwebController extends Controller
 
     public function script()
     {
-        if ($this->config['targeting'] && $this->config['beacon']) {
-            $this->beacon = 0;
-        }
-
         $settings = json_encode(array(
             'wsid' => $this->config['id_site'],
             'sitename' => $this->config['sitename'],
             'debug' => $this->config['debug'],
-            'adblock_modal' => $this->config['adblock_modal'],
-            'targeting' => $this->config['targeting'],
-            'beacon' => $this->config['beacon'],
             'dwide' => $this->config['dwide'],
             'locale' => $this->config['lang'],
             'msg' => $this->config['message'],

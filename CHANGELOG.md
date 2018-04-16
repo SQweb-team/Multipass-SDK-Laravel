@@ -1,8 +1,12 @@
 # Changelog
 
+## v1.3.4 - 2018-04-16
+
+* Fixed some typos.
+
 ## v1.3.3 - 2018-03-05
 
-* Improved the way we log support button actions
+* Improved the way we log support button actions.
 
 ## v1.3.2 - 2018-02-28
 
